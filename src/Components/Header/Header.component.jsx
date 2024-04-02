@@ -1,3 +1,5 @@
+import { Cart } from "../Cart/Cart.component";
+
 export function Header()
 {
     return(
@@ -23,7 +25,7 @@ export function Header()
                 </div>
             </div>
         </nav>
-   
+<Cart />
     </header>
         </>
     )
