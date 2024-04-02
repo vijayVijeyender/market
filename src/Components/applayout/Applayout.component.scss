@@ -1,0 +1,17 @@
+$header-height: 64px;
+$header-sm-height: 58px;
+$footer-height: 57px;
+
+.main{
+  min-height: calc(100vh-#{$header-height}-#{$footer-height});
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-top: $header-height;
+  @media screen and (max-width: 991px) {
+    & {
+      padding-top: $header-height;
+    }
+  }
+}
