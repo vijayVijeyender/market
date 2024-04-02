@@ -1,25 +1,25 @@
-import { Suspense, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState } from 'react'
 import './App.css'
-import React from 'react'
-import { Route,Routes } from 'react-router-dom'
-import Header from './components/Header/HeaderComponent'
-import Home from './pages/Home/Home'
+import { Route, Routes } from "react-router-dom";
+import { Home } from './Pages/Home.page';
+import React,{ ReactElement, Suspense } from "react";
+import { AppProviders } from "./providers";
+import Applayout from "./Components/applayout/Applayout.component";
 
 
 function App() {
 
   return (
-    <>
-    <Header/>
-     <Home/>
-     
-     </>
-    
-
-  
-
+ 
+     <AppProviders>
+    <Applayout>
+   <Suspense >
+  <Routes>
+    <Route path="/" element={<Home/>}/>
+  </Routes>
+   </Suspense>
+   </Applayout>
+   </AppProviders>
   )
 }
 
