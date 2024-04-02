@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Header from '../Header/Header.component'
 
 const Home = () => {
 
@@ -21,20 +22,20 @@ const Home = () => {
     ]
     const [cartItems,setCartItems] = useState([])
     const handleCart =(items)=>{
+        
      const waterCane = deliveryDetails.find((detail)=>{
         detail.productName === items
-        if(waterCane){
-        const addItems = [...cartItems].push({
+     if(waterCane){}
+        const addItems  = [...cartItems].push({
             itemName: "waterCane",
             quantity: "1",
             price: "Rs.25"})}
-            else {
-
-
-            }
+     
             
-        });
-        setCartItems(addItems)
+            
+        );
+       
+            setCartItems(addItems)
 
      }
 
@@ -43,6 +44,7 @@ const Home = () => {
 
   
   return (
+    
     
     <div className="container">
     <div className="row">
@@ -74,7 +76,7 @@ const Home = () => {
     ))}
                 
             </div>
-            <Header cartItems={cartItems} />
+           
         </div>
     
 
