@@ -3,8 +3,8 @@ import './App.css'
 import { Route, Routes } from "react-router-dom";
 import React,{ ReactElement, Suspense } from "react";
 import { AppProviders } from "./providers";
-import Applayout from "./components/applayout/Applayout.component";
-import Home from './pages/Home.page';
+import Applayout from "./Components/applayout/Applayout.component";
+import Home from './Pages/Home.page';
 
 
 function App() {
