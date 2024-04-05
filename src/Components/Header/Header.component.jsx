@@ -1,7 +1,9 @@
 import { Cart } from "../Cart/Cart.component";
+import { useNavigate } from "react-router-dom";
 
 export function Header()
 {
+    const navigate= useNavigate();
     return(
         <>
       <header style={{ marginBottom:"24px", }}>
@@ -14,9 +16,9 @@ export function Header()
                     </svg><span style={{ color:"rgb(13,234,9)", }}>Cart</span></button><button data-bs-toggle="collapse" className="navbar-toggler text-end" data-bs-target="#navcol-2"><span className="visually-hidden">Toggle navigation</span><span className="navbar-toggler-icon"></span></button>
                 <div className="collapse navbar-collapse text-center" id="navcol-2" style={{ margin:"0px", }}>
                     <ul className="navbar-nav navbar-nav-scroll ms-auto">
-                        <li className="nav-item"><a className="nav-link active" href="#">Home</a></li>
-                        <li className="nav-item"><a className="nav-link" href="#">Category</a></li>
-                        <li className="nav-item"><a className="nav-link" href="#">Third Item</a></li>
+                        <li className="nav-item"><a className="nav-link active" href="/">Home</a></li>
+                        <li className="nav-item"><a className="nav-link" href="/brand">Brand</a></li>
+                        <li className="nav-item"><a className="nav-link" href="#">Category</a></li>  
                         <li className="nav-item"><a className="nav-link" href="#">Third Item</a></li>
                         <li className="nav-item"><a className="nav-link" href="#">Third Item</a></li>
                         <li className="nav-item"><a className="nav-link" href="#">Third Item</a></li>
