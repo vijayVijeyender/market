@@ -56,8 +56,8 @@ const Home = () => {
     </div>
     
     <div className="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
-    {deliveryDetails.map((detail) => (
-        <div className="col" style={{ borderStyle:"solid", }}>
+    {deliveryDetails.map((detail, index) => (
+        <div className="col" key={index} style={{ borderStyle:"solid", }}>
             <div className="p-4"><span className="badge rounded-pill bg-primary mb-2">{detail.productName}</span>
                 <h4>{detail.productDeliveryTime}</h4>
                 <p>{detail.productDeliveryDetails}</p>
