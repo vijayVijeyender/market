@@ -5,6 +5,7 @@ import { AppProviders } from "./providers";
 import Applayout from "./Components/applayout/Applayout.component";
 import Home from './Pages/Home.page';
 import Brand from './Pages/Brand/Brand.page';
+import { Product } from './Pages/Product/Product.page';
 
 function App() {
 
@@ -16,6 +17,8 @@ function App() {
   <Routes>
     <Route path="/" element={<Home/>}/>
     <Route path="/brand" element={<Brand />}/>
+    <Route path="/Product" element={<Product />}/>
+
   </Routes>
    </Suspense>
    </Applayout>
