@@ -27,20 +27,22 @@ const Home = () => {
         }, 
     ]
     const [cartItems,setCartItems] = useState([])
+    
     const handleCart =(items)=>{
         
-    //  const waterCane = deliveryDetails.find((detail)=>{
-    //     detail.productName === items
-    //  if(waterCane){}
-    //     const addItems  = [...cartItems].push({
-    //         itemName: "waterCane",
-    //         quantity: "1",
-    //         price: "Rs.25"})
-            
-    //     } 
-    //     );
+     const waterCane = deliveryDetails.find((detail)=>{
+        detail.productName === items
+     if(detail.productQty==="2"){
+        const addItems  = { productName:"Water Can",
+        productQty:"2",
+        productPrice:"40"}
+         const listItem = [...cartItems , addItems] 
+         setCartItems(listItem)  
+     }
+        } 
+        );
        
-            // setCartItems(addItems)
+            
 
      }
   
@@ -56,8 +58,8 @@ const Home = () => {
     </div>
     
     <div className="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
-    {deliveryDetails.map((detail, index) => (
-        <div className="col" key={index} style={{ borderStyle:"solid", }}>
+    {deliveryDetails.map((detail) => (
+        <div className="col" style={{ borderStyle:"solid", }}>
             <div className="p-4"><span className="badge rounded-pill bg-primary mb-2">{detail.productName}</span>
                 <h4>{detail.productDeliveryTime}</h4>
                 <p>{detail.productDeliveryDetails}</p>

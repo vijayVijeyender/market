@@ -12,7 +12,7 @@ export default function Brand(){
            }
          )
          .catch(err=>{
-           actions.setResponseStatus("failed");    
+           setResponseStatus("failed");    
          });
     }
 
