@@ -1,79 +1,95 @@
+import { useEffect, useState } from "react";
 export function Product()
 {
+    const [productList,setProductList] = useState([])
+    const [responseStatus,setResponseStatus]= useState('')
+
+    async function fetchBrandDetails(){
+        await axios.get("http://localhost:8080/Product").then(
+            res=>{ 
+                 setBrandList(res.data);
+                 setResponseStatus("success");
+           }
+         )
+         .catch(err=>{
+           setResponseStatus("failed");    
+         });
+    }
+    
     const product=[
         {
-productImg:<img srcSet=".src/assets/img/Product/been.jpg" />,
+productImg:<img srcSet="src/assets/img/Product/been.jpg" />,
 productNameEng:"Beens",
 productNameTn:"பீன்ஸ்",
         },
         {
-productImg:<img srcSet=".src/assets/img/Product/Butter.jpg" />,
- productNameEng:"Butter",
+productImg:<img srcSet="src/assets/img/Product/Butter.jpg" />,
+ productNameEng:"வெண்ணெய்",
 productNameTn:"பீன்ஸ்",
                     },
                     {
-productImg:<img srcSet=".src/assets/img/Product/DriedFruit.jpg" />,
+productImg:<img srcSet="src/assets/img/Product/DriedFruit.jpg" />,
 productNameEng:"Dried Fruits",
-productNameTn:"பீன்ஸ்",
+productNameTn:"உலர்ந்த பழங்கள்",
                                 },
                                 {
-productImg:<img srcSet=".src/assets/img/Product/Pasta.jpg" />,
+productImg:<img srcSet="src/assets/img/Product/Pasta.jpg" />,
 productNameEng:"Pasta",
-  productNameTn:"பீன்ஸ்",
+  productNameTn:"பாஸ்தா",
   },
   {
-   productImg:<img srcSet=".src/assets/img/Product/been.jpg" />,
-productNameEng:"Beens",
-productNameTn:"பீன்ஸ்",
+   productImg:<img srcSet="src/assets/img/Product/BiryaniRice.jpg" />,
+productNameEng:"Biryani Rice",
+productNameTn:"பிரியாணி சாதம்",
 },
 {
-    productImg:<img srcSet=".src/assets/img/Product/been.jpg" />,
-    productNameEng:"Beens",
-    productNameTn:"பீன்ஸ்",
+    productImg:<img srcSet="src/assets/img/Product/Redchillipowder.jpg" />,
+    productNameEng:"Red chilli powder",
+    productNameTn:"சிவப்பு மிளகாய் தூள்",
             },
             {
-    productImg:<img srcSet=".src/assets/img/Product/been.jpg" />,
-     productNameEng:"Beens",
-    productNameTn:"பீன்ஸ்",
+    productImg:<img srcSet="src/assets/img/Product/Sambarpowder.jpg" />,
+     productNameEng:"Sambar powder",
+    productNameTn:"சாம்பார் பொடி",
                         },
                         {
-    productImg:<img srcSet=".src/assets/img/Product/been.jpg" />,
-    productNameEng:"Beens",
-    productNameTn:"பீன்ஸ்",
+    productImg:<img srcSet="src/assets/img/Product/Pepper.jpg" />,
+    productNameEng:"Pepper",
+    productNameTn:"மிளகு",
                                     },
                                     {
-    productImg:<img srcSet=".src/assets/img/Product/been.jpg" />,
-    productNameEng:"Beens",
-      productNameTn:"பீன்ஸ்",
+    productImg:<img srcSet="src/assets/img/Product/Ragiflour.jpg" />,
+    productNameEng:"Ragi flour",
+      productNameTn:"ராகி மாவு",
       },
       {
-       productImg:<img srcSet=".src/assets/img/Product/been.jpg" />,
-    productNameEng:"Beens",
-    productNameTn:"பீன்ஸ்",
+       productImg:<img srcSet="src/assets/img/Product/Noodles.jpg" />,
+    productNameEng:"Noodles",
+    productNameTn:"நூடுல்ஸ்",
     },        {
-        productImg:<img srcSet=".src/assets/img/Product/been.jpg" />,
-        productNameEng:"Beens",
-        productNameTn:"பீன்ஸ்",
+        productImg:<img srcSet="src/assets/img/Product/Teapowder.jpg" />,
+        productNameEng:"Tea powder",
+        productNameTn:"தேயிலை தூள்",
                 },
                 {
-        productImg:<img srcSet=".src/assets/img/Product/been.jpg" />,
-         productNameEng:"Beens",
-        productNameTn:"பீன்ஸ்",
+        productImg:<img srcSet="src/assets/img/Product/Sugar.jpg" />,
+         productNameEng:"Sugar",
+        productNameTn:"சர்க்கரை",
                             },
                             {
-        productImg:<img srcSet=".src/assets/img/Product/been.jpg" />,
-        productNameEng:"Beens",
-        productNameTn:"பீன்ஸ்",
+        productImg:<img srcSet="src/assets/img/Product/Bakingpowder.jpg" />,
+        productNameEng:"Baking powder",
+        productNameTn:"பேக்கிங் பவுடர்",
                                         },
                                         {
-        productImg:<img srcSet=".src/assets/img/Product/been.jpg" />,
-        productNameEng:"Beens",
-          productNameTn:"பீன்ஸ்",
+        productImg:<img srcSet="src/assets/img/Product/Almonds.jpg" />,
+        productNameEng:"Almonds",
+          productNameTn:"பாதாம்",
           },
           {
-           productImg:<img srcSet=".src/assets/img/Product/been.jpg" />,
-        productNameEng:"Beens",
-        productNameTn:"பீன்ஸ்",
+           productImg:<img srcSet="src/assets/img/Product/Dates.jpg" />,
+        productNameEng:"Dates",
+        productNameTn:"பேரிச்சை",
         },
     ]
     return(
@@ -83,9 +99,9 @@ productNameTn:"பீன்ஸ்",
           
             <div className="row mb-5">
                 <div className="col-md-8 col-xl-6 text-center mx-auto">
-                    <h2>Products</h2><button style={{float:"right"}}>Add to Product</button>
+                    <h2>Products</h2>
                     <p className="w-lg-50">Here You can find the groups of products that meet a similar consumer need or that can substitute for each</p>
-                </div>
+                </div>  <div className="col text-end align-self-center"><a className="btn btn-outline-info btn-lg" role="button" href="/CreateProduct">Create New Product</a></div>
             </div>
             <div className="row gx-2 gy-2 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="">
             {product.map((item)=>(
@@ -98,12 +114,13 @@ productNameTn:"பீன்ஸ்",
                                     <h5 className="fw-bold text-primary mb-0">{item.productNameTn}</h5>
 
                                 </div>
-                                <br></br>
+                               <p>
                                 <div className="col align-self-center"><select>
                                         <option value="13">250 g</option>
                                         <option value="12" selected="">500 g</option>
                                         <option value="14">1kg</option>
                                     </select></div>
+                                    </p>
                             </div>
                             <div className="row" style={{ marginRight:"-20px", marginBottom:"10px", }}>
                                 <div className="col" style={{ background:"#e43c3c", }}><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none">
