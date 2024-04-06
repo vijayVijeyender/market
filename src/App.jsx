@@ -20,6 +20,8 @@ function App() {
     <Route path="/brand" element={<Brand />}/>
     <Route path="/category" element={<Category />}/>
     <Route path="category/createcategory" element={<CreateNewCategory />}/>
+    <Route path="/Product" element={<Product />}/>
+
   </Routes>
    </Suspense>
    </Applayout>

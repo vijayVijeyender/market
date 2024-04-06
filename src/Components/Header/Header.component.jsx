@@ -18,8 +18,8 @@ export function Header()
                     <ul className="navbar-nav navbar-nav-scroll ms-auto">
                         <li className="nav-item"><a className="nav-link active" href="/">Home</a></li>
                         <li className="nav-item"><a className="nav-link" href="/brand">Brand</a></li>
-                        <li className="nav-item"><a className="nav-link" href="/category">Category</a></li>  
-                        <li className="nav-item"><a className="nav-link" href="#">Third Item</a></li>
+                        <li className="nav-item"><a className="nav-link" href="/category">Category</a></li>    
+                        <li className="nav-item"><a className="nav-link" href="/Product">Product</a></li>
                         <li className="nav-item"><a className="nav-link" href="#">Third Item</a></li>
                         <li className="nav-item"><a className="nav-link" href="#">Third Item</a></li>
                         <li className="nav-item"><a className="nav-link" href="#">Third Item</a></li>
