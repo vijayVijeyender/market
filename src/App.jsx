@@ -6,6 +6,7 @@ import Applayout from "./Components/applayout/Applayout.component";
 import Home from './Pages/Home.page';
 import Brand from './Pages/Brand/Brand.page';
 import { Product } from './Pages/Product/Product.page';
+import { CreateProduct } from './Pages/Product/CreateProduct.page';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
     <Route path="/" element={<Home/>}/>
     <Route path="/brand" element={<Brand />}/>
     <Route path="/Product" element={<Product />}/>
+    <Route path="/CreateProduct" element={<CreateProduct />}/>
 
   </Routes>
    </Suspense>
