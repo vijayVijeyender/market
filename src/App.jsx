@@ -3,10 +3,10 @@ import { Route, Routes } from "react-router-dom";
 import React,{ ReactElement, Suspense } from "react";
 import { AppProviders } from "./providers";
 import Applayout from "./components/applayout/Applayout.component";
-import Brand from './pages/Brand/Brand.page';
 import Home from './pages/Home.page';
-import Category from './pages/category/Category';
-
+import Brand from './pages/Brand/Brand.page';
+import Category from './pages/category/Category'
+import CreateNewCategory from './pages/category/CreateNewCategory';
 
 function App() {
 
@@ -19,6 +19,7 @@ function App() {
     <Route path="/" element={<Home/>}/>
     <Route path="/brand" element={<Brand />}/>
     <Route path="/category" element={<Category />}/>
+    <Route path="category/createcategory" element={<CreateNewCategory />}/>
   </Routes>
    </Suspense>
    </Applayout>

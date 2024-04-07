@@ -103,7 +103,7 @@ const Category = () => {
                 <h2>Category</h2>
                 <p className="w-lg-50">Here You can find the groups of products that meet a similar consumer need or that can substitute for each</p>
             </div>
-            <div className="col-auto col-md-8 col-xl-1 text-center align-self-center" style={{ marginRight:"0px", }}><button className="btn btn-primary" type="button" style={{ marginLeft:"32px", }}>Create New Category</button></div>
+            <div className="col-auto col-md-8 col-xl-1 text-center align-self-center" style={{ marginRight:"0px", }}><a className="btn btn-outline-info btn-lg" role="button" href="/category/createCategory">Create New Category</a></div>
         </div>
         
         <div className="row gx-2 gy-2 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="">
