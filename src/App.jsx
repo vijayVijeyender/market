@@ -8,6 +8,9 @@ import Brand from './Pages/Brand/Brand.page';
 import { Product } from './Pages/Product/Product.page';
 import { CreateProduct } from './Pages/Product/CreateProduct.page';
 
+import Category from './Pages/category/Category.jsx';
+import CreateNewCategory from './Pages/category/CreateNewCategory.jsx'
+
 
 function App() {
 
