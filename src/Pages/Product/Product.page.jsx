@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 export function Product()
 {
     const [productList,setProductList] = useState([])
     const [responseStatus,setResponseStatus]= useState('')
 
-    async function fetchBrandDetails(){
-        await axios.get("http://localhost:8080/Product").then(
+    async function fetchProductDetails(){
+        await axios.get("http://localhost:8080/product").then(
             res=>{ 
-                 setBrandList(res.data);
+                 setProductList(res.data);
                  setResponseStatus("success");
            }
          )
@@ -16,6 +17,9 @@ export function Product()
          });
     }
     
+    useEffect(()=>{
+        fetchProductDetails();
+    },[setProductList])
     const product=[
         {
 productImg:<img srcSet="src/assets/img/Product/been.jpg" />,
@@ -104,13 +108,13 @@ productNameTn:"பிரியாணி சாதம்",
                 </div>  <div className="col text-end align-self-center"><a className="btn btn-outline-info btn-lg" role="button" href="/CreateProduct">Create New Product</a></div>
             </div>
             <div className="row gx-2 gy-2 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="">
-            {product.map((item)=>(
+            {productList.map((item)=>(
                 <div className="col item">
                     <div className="card border-0 shadow-none">
                         <div className="card-body text-center d-flex flex-column align-items-center p-0">{item.productImg}
                             <div className="row" style={{ margin:"0px", marginRight:"0px", marginBottom:"10px", marginTop:"0px", }}>
                                 <div className="col">
-                                    <h5 className="fw-bold text-primary mb-0">{item.productNameEng}</h5>
+                                    <h5 className="fw-bold text-primary mb-0">{item.productName}</h5>
                                     <h5 className="fw-bold text-primary mb-0">{item.productNameTn}</h5>
 
                                 </div>

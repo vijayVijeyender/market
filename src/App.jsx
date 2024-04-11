@@ -10,6 +10,9 @@ import Category from "./Pages/category/Category.jsx";
 import CreateNewCategory from "./Pages/category/CreateNewCategory.jsx";
 import { CreateProduct } from './Pages/Product/CreateProduct.page';
 
+import Category from './Pages/category/Category.jsx';
+import CreateNewCategory from './Pages/category/CreateNewCategory.jsx'
+
 
 function App() {
 
