@@ -1,6 +1,6 @@
 import './App.css'
 import { Route, Routes } from "react-router-dom";
-import React,{ ReactElement, Suspense } from "react";
+import React, { Suspense } from "react";
 import { AppProviders } from "./providers";
 import Applayout from "./Components/applayout/Applayout.component";
 import Home from './Pages/Home.page';
@@ -9,6 +9,7 @@ import { Product } from './Pages/Product/Product.page';
 import Category from "./Pages/category/Category.jsx";
 import CreateNewCategory from "./Pages/category/CreateNewCategory.jsx";
 import { CreateProduct } from './Pages/Product/CreateProduct.page';
+import { CreateBrand } from './Pages/Brand/Components/CreateBrand.component.jsx';
 
 import Category from './Pages/category/Category.jsx';
 import CreateNewCategory from './Pages/category/CreateNewCategory.jsx'
@@ -17,23 +18,23 @@ import CreateNewCategory from './Pages/category/CreateNewCategory.jsx'
 function App() {
 
   return (
- 
-     <AppProviders>
-    <Applayout>
-   <Suspense >
-  <Routes>
-    <Route path="/" element={<Home/>}/>
-    <Route path="/brand" element={<Brand />}/>
-    <Route path="/category" element={<Category />}/>
-    <Route path="/category" element={<Category />}/>
-    <Route path="category/createcategory" element={<CreateNewCategory />}/>
-    <Route path="/Product" element={<Product />}/>
-    <Route path="/CreateProduct" element={<CreateProduct />}/>
 
-  </Routes>
-   </Suspense>
-   </Applayout>
-   </AppProviders>
+    <AppProviders>
+      <Applayout>
+        <Suspense >
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/brand" element={<Brand />} />
+            <Route path="/category" element={<Category />} />
+            <Route path="/category" element={<Category />} />
+            <Route path="category/createcategory" element={<CreateNewCategory />} />
+            <Route path="/Product" element={<Product />} />
+            <Route path="product/createproduct" element={<CreateProduct />} />
+            <Route path="brand/createbrand" element={<CreateBrand />} />
+          </Routes>
+        </Suspense>
+      </Applayout>
+    </AppProviders>
   )
 }
 
