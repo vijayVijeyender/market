@@ -105,7 +105,7 @@ productNameTn:"பிரியாணி சாதம்",
                 <div className="col-md-8 col-xl-6 text-center mx-auto">
                     <h2>Products</h2>
                     <p className="w-lg-50">Here You can find the groups of products that meet a similar consumer need or that can substitute for each</p>
-                </div>  <div className="col text-end align-self-center"><a className="btn btn-outline-info btn-lg" role="button" href="/CreateProduct">Create New Product</a></div>
+                </div>  <div className="col text-end align-self-center"><a className="btn btn-outline-info btn-lg" role="button" href="product/CreateProduct">Create New Product</a></div>
             </div>
             <div className="row gx-2 gy-2 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="">
             {productList.map((item)=>(
