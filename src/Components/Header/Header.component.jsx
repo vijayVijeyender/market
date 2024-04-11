@@ -27,7 +27,7 @@ export function Header()
                 </div>
             </div>
         </nav>
-<Cart />
+{/* <Cart /> */}
     </header>
         </>
     )

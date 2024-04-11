@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Cart } from '../Components/Cart/Cart.component'
 
 
 const Home = () => {
@@ -28,23 +29,15 @@ const Home = () => {
     ]
     const [cartItems,setCartItems] = useState([])
     
-    const handleCart =(items)=>{
-        
-     const waterCane = deliveryDetails.find((detail)=>{
-        detail.productName === items
-     if(detail.productQty==="2"){
-        const addItems  = { productName:"Water Can",
-        productQty:"2",
-        productPrice:"40"}
+    const handleCart =(items)=>{  
+        const addItems  = { productName:items.productName,
+        productQty:items.productQty,
+        productPrice:items.productPrice}
+
          const listItem = [...cartItems , addItems] 
          setCartItems(listItem)  
-     }
-        } 
-        );
-       
-            
-
-     }
+        }
+     
   
   return (
     
@@ -59,6 +52,8 @@ const Home = () => {
     
     <div className="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
     {deliveryDetails.map((detail) => (
+
+        
         <div className="col" style={{ borderStyle:"solid", }}>
             <div className="p-4"><span className="badge rounded-pill bg-primary mb-2">{detail.productName}</span>
                 <h4>{detail.productDeliveryTime}</h4>
@@ -72,18 +67,19 @@ const Home = () => {
                         <label><strong>Product Price  :</strong></label> {detail.productPrice}
                         </p>
                         </div>
-                    <div className="col-xl-9"><button className="btn btn-primary font-monospace text-truncate" type="button" style={{ margin:"0px", marginTop:"10px", marginLeft:"30px", }}
-                    
-                    onClick={()=> handleCart(items)}
-                    
-                    
-                    
-                    >Add To Cart</button></div>
+                    <div className="col-xl-9">
+                        <button className="btn btn-primary font-monospace text-truncate"
+                         style={{ margin:"0px", marginTop:"10px", marginLeft:"30px", }}
+                    onClick={()=> handleCart(detail)}
+                    >Add To Cart</button>
+                    </div>
                     </div>
                 </div>
+              <Cart cartItems ={cartItems}/>
             </div>
             
     ))}
+      
                 
             </div>
            
