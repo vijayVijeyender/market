@@ -1,5 +1,5 @@
-import React from 'react'
-
+import {useState, useEffect} from 'react'
+import axios from "axios";
 const Category = () => {
     const categoryList =[
         {
@@ -74,24 +74,24 @@ const Category = () => {
         }
     ]
 
-// const [categoryList,setCategoryList] = useState([])
-// const [responseStatus,setResponseStatus]= useState('')
+ const [categories,setCategories] = useState([])
+const [responseStatus,setResponseStatus]= useState('')
 
-// async function fetchCategoryDetails(){
-//     await axios.get("http://localhost:8080/category").then(
-//         res=>{ 
-//              setCategoryList(res.data);
-//              setResponseStatus("success");
-//        }
-//      )
-//      .catch(err=>{
-//        setResponseStatus("failed");    
-//      });
-// }
+async function fetchCategoryDetails(){
+    await axios.get("http://localhost:8080/category").then(
+        res=>{ 
+            setCategories(res.data);
+             setResponseStatus("success");
+       }
+     )
+     .catch(err=>{
+       setResponseStatus("failed");    
+     });
+}
 
-// // useEffect(()=>{
-// //     fetchBrandDetails();
-// // },[setCategoryList])
+useEffect(()=>{
+    fetchCategoryDetails();
+},[setCategories])
 
 
   return (
@@ -107,7 +107,7 @@ const Category = () => {
         </div>
         
         <div className="row gx-2 gy-2 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="">
-        {categoryList.map((category)=>(
+        {categories.map((category)=>(
         
             <div className="col item"><a href="">
                     <div className="card border-0 shadow-none">
