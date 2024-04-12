@@ -28,16 +28,16 @@ const CreateCategory = () => {
 
   function handleCategoryInput(inputType, e) {
     switch (inputType) {
-      case "categoryname":
+      case "categoryName":
         setCategory({ ...category, categoryName: e.target.value })
         break;
-      case "categorynameTn":
+      case "categoryNameTn":
         setCategory({ ...category, categoryNameTn: e.target.value })
         break;
-      case "categorydesc":
+      case "categoryDescription":
         setCategory({ ...category, categoryDescription: e.target.value })
         break;
-      case "categorydescTn":
+      case "categoryDescriptionTn":
         setCategory({ ...category, categoryDescriptionTn: e.target.value })
         break;
     }
@@ -55,9 +55,12 @@ const CreateCategory = () => {
       </header>
       <div className="row gy-3 text-center d-flex flex-row justify-content-center">
         <div className="col-auto col-xl-6"><label className="form-label float-start form-label form-label" for="categoryname">Enter Category Name</label><input onChange={(e) => handleCategoryInput("categoryName", e)} type="text" className="form-control" name="categoryname" placeholder="Enter Category name" /></div>
-        <div className="col-auto"><label className="form-label float-start form-label form-label">Enter Category Tamil Name</label><input onChange={(e) => handleCategoryInput("categoryNameTn", e)} type="text" className="form-control" placeholder="Enter category name in tamil" /></div>
-        <div className="col-auto"><label className="form-label float-start form-label form-label">Enter Category Description</label><input onChange={(e) => handleCategoryInput("categoryDescription", e)} type="text" className="form-control" placeholder="Enter Category description " /></div>
-        <div className="col-auto"><label className="form-label float-start form-label form-label">Enter Category Description in Tamil</label><input onChange={(e) => handleCategoryInput("categoryDescriptionTn", e)} type="text" className="form-control" placeholder="Enter Category Description in tamil" /></div>
+        <div className="col-auto"><label className="form-label float-start form-label form-label">Enter Category Tamil Name</label>
+        <input onChange={(e) => handleCategoryInput("categoryNameTn", e)} type="text" className="form-control" placeholder="Enter category name in tamil" /></div>
+        <div className="col-auto"><label className="form-label float-start form-label form-label">Enter Category Description</label>
+        <input onChange={(e) => handleCategoryInput("categoryDescription", e)} type="text" className="form-control" placeholder="Enter Category description " /></div>
+        <div className="col-auto"><label className="form-label float-start form-label form-label">Enter Category Description in Tamil</label>
+        <input onChange={(e) => handleCategoryInput("categoryDescriptionTn", e)} type="text" className="form-control" placeholder="Enter Category Description in tamil" /></div>
       </div>
       <div className="row d-flex justify-content-center" style={{ marginTop: "28px", }}>
         <div className="col-3" style={{ textAlign: "center", }}><button onClick={() => Create()} className="btn btn-success" type="button" style={{ textAlign: "center", }}>Create</button></div>
