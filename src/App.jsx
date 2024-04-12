@@ -7,12 +7,11 @@ import Home from './Pages/Home.page';
 import Brand from './Pages/Brand/Brand.page';
 import { Product } from './Pages/Product/Product.page';
 import Category from "./Pages/category/Category.jsx";
-import CreateNewCategory from "./Pages/category/CreateNewCategory.jsx";
+import CreateCategory from "./Pages/category/Components/CreateCategory.jsx";
 import { CreateProduct } from './Pages/Product/CreateProduct.page';
 import { CreateBrand } from './Pages/Brand/Components/CreateBrand.component.jsx';
 
-import Category from './Pages/category/Category.jsx';
-import CreateNewCategory from './Pages/category/CreateNewCategory.jsx'
+
 
 
 function App() {
@@ -27,7 +26,7 @@ function App() {
             <Route path="/brand" element={<Brand />} />
             <Route path="/category" element={<Category />} />
             <Route path="/category" element={<Category />} />
-            <Route path="category/createcategory" element={<CreateNewCategory />} />
+            <Route path="category/createcategory" element={<CreateCategory />} />
             <Route path="/Product" element={<Product />} />
             <Route path="product/createproduct" element={<CreateProduct />} />
             <Route path="brand/createbrand" element={<CreateBrand />} />
