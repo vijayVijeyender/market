@@ -11,8 +11,6 @@ import CreateNewCategory from "./Pages/category/CreateNewCategory.jsx";
 import { CreateProduct } from './Pages/Product/CreateProduct.page';
 import { CreateBrand } from './Pages/Brand/Components/CreateBrand.component.jsx';
 
-import Category from './Pages/category/Category.jsx';
-import CreateNewCategory from './Pages/category/CreateNewCategory.jsx'
 
 
 function App() {
