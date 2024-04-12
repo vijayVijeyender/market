@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export function CreateProduct()
 {
@@ -8,15 +9,15 @@ export function CreateProduct()
         {
             productName:'',
             productNameTn:'',
-            productDes:'',
-            productDesTn:'',
-            cId:'',
-            bId:'',
+            productDescription:'',
+            productDescriptionTn:'',
+            cName:'',
+            bName:'',
         }
     )
     const [responseStatus,setResponseStatus]= useState('')
     async function handleCreate(){
-        await axios.post("http://localhost:8080/brand/createProduct", product).then(
+        await axios.post("http://localhost:8080/product/createProduct", product).then(
             res => {
                 setResponseStatus("success");
             }
@@ -37,16 +38,16 @@ case "productName":
     setProduct({...product,productNameTn:e.target.value})
     break;
     case "productDes":
-    setProduct({...product,productDes:e.target.value})
+    setProduct({...product,productDescription:e.target.value})
     break;
     case "productDesTn":
-    setProduct({...product,productDesTn:e.target.value})
+    setProduct({...product,productDescriptionTn:e.target.value})
     break;
-    case "cId":
-    setProduct({...product,cId:e.target.value})
+    case "cName":
+    setProduct({...product,cName:e.target.value})
     break;
-    case "bId":
-    setProduct({...product,bId:e.target.value})
+    case "bName":
+    setProduct({...product,bName:e.target.value})
     break;
 }
 
@@ -63,15 +64,14 @@ case "productName":
             <div className="col-auto"><label className="form-label float-start form-label form-label">Enter Product Tamil Name</label><input type="text" onChange={(e)=>handleProductInput("productNameTn",e)} className="form-control" placeholder="Enter Product name in tamil" /></div>
             <div className="col-auto"><label className="form-label float-start form-label form-label">Enter Product Description</label><input type="text" onChange={(e)=>handleProductInput("productDes",e)} className="form-control" placeholder="Enter Product description " /></div>
             <div className="col-auto"><label className="form-label float-start form-label form-label">Enter Product Description in Tamil</label><input type="text" onChange={(e)=>handleProductInput("productDesTn",e)} className="form-control" placeholder="Enter Product Description in tamil" /></div>
-            <div className="col-auto"><label className="form-label float-start form-label form-label">Enter Category Name</label><input type="text" onChange={(e)=>handleProductInput("cId",e)} className="form-control" placeholder="Enter Category Name" /></div>
-            <div className="col-auto"><label className="form-label float-start form-label form-label">Enter Brand Name</label><input type="text" onChange={(e)=>handleProductInput("bId",e)} className="form-control" placeholder="Enter Brand Name" /></div>
+            <div className="col-auto"><label className="form-label float-start form-label form-label">Enter Category Name</label><input type="text" onChange={(e)=>handleProductInput("cName",e)} className="form-control" placeholder="Enter Category Name" /></div>
+            <div className="col-auto"><label className="form-label float-start form-label form-label">Enter Brand Name</label><input type="text" onChange={(e)=>handleProductInput("bName",e)} className="form-control" placeholder="Enter Brand Name" /></div>
         </div>
         <div className="row d-flex justify-content-center" style={{ marginTop:"28px", }}>
             <div className="col-3" style={{ textAlign:"center", }}><button onClick={()=>handleCreate()} className="btn btn-success" type="button" style={{ textAlign:"center", }}>Create</button></div>
             <div className="col-3" style={{ textAlign:"center", }}><button className="btn btn-danger" type="button" style={{ textAlign:"center", }}>cancel</button></div>
         </div>
-        <h3>{product.productName}</h3>
-        <h3>{product.productNameTn}</h3>
+    
 
         </>
     )
