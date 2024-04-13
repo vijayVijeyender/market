@@ -96,53 +96,52 @@ export function Product() {
         },
     ]
     return (
-        <>
-            <section id="products" className="photo-gallery">
-                <div className="container">
-
-                    <div className="row mb-3">
-                        <div className="col-8 text-center mx-auto">
-                            <h2>Products</h2>
-                            <p className="w-lg-50">Here You can find the groups of products that meet a similar consumer need or that can substitute for each</p>
-                        </div>  <div className="col-2 text-end align-self-center"><a className="btn btn-outline-info btn-lg" role="button" href="product/CreateProduct">Create New Product</a></div>
-                    </div>
-                    <div className="row gx-2 gy-2 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="">
-                        {productList.map((item) => (
-                            <div className="col item">
-                                <div className="card border-0 shadow-none">
-                                    <div className="card-body text-center d-flex flex-column align-items-center p-0">{item.productImg}
-                                        <div className="row" style={{ margin: "0px", marginRight: "0px", marginBottom: "10px", marginTop: "0px", }}>
-                                            <div className="col">
-                                                <h5 className="fw-bold text-primary mb-0">{item.productName}</h5>
-                                                <h5 className="fw-bold text-primary mb-0">{item.productNameTn}</h5>
-
-                                            </div>
-                                            <p>
-                                                <div className="col align-self-center"><select>
-                                                    <option value="13">250 g</option>
-                                                    <option value="12" selected="">500 g</option>
-                                                    <option value="14">1kg</option>
-                                                </select></div>
-                                            </p>
-                                        </div>
-                                        <div className="row" style={{ marginRight: "-20px", marginBottom: "10px", }}>
-                                            <div className="col" style={{ background: "#e43c3c", }}><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none">
-                                                <path d="M4 12C4 11.4477 4.44772 11 5 11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H5C4.44772 13 4 12.5523 4 12Z" fill="currentColor"></path>
-                                            </svg></div>
-                                            <div className="col"><input type="number" style={{ width: "100px", }} /></div>
-                                            <div className="col" style={{ background: "#50d966", }}><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" className="icon icon-tabler icon-tabler-plus">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                                            </svg></div>
-                                        </div><button className="btn btn-primary" type="button" style={{ width: "57%", }}>Add to Cart</button>
-                                    </div>
+        <div className="container py-4 py-xl-5">
+            <div className="row mb-5">
+                <div className="col-8 col-xl-9 text-center mx-auto">
+                    <h2><br /><strong>Products</strong><br /></h2>
+                    <p className="w-lg-50"><br />Here You can find the groups of products that meet a similar consumer need or that can substitute for each<br /></p>
+                </div>
+                <div className="col align-self-center" style={{ textAlign: "center", }}><button className="btn btn-primary" type="button">Create New Product</button></div>
+            </div>
+            <div className="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+{productList.map((item) => (
+                <div className="col item">
+                    <div className="card">
+                        <div className="card-body text-center d-flex flex-column align-items-center p-0"><img className="rounded-circle mb-3 fit-cover" width="130" height="130" src="ready_to_cook.jpeg" />
+                            <div className="row row-cols-1" style={{ margin: "0px", marginRight: "0px", marginBottom: "10px", marginTop: "0px", }}>
+                                <div className="col">
+                                    <h4 className="card-title">{item.productNameTn}</h4>
+                                    <h4 className="card-title">{item.productName}</h4>
                                 </div>
+                                <br/>  
+                                <div className="col align-self-center">
+                                    <select>
+                                    <option value="13">250 g</option>
+                                    <option value="12" selected>500 g</option>
+                                    <option value="14">1kg</option>
+                                </select></div>
                             </div>
-                        ))}
+                            <div className="row" style={{ marginRight: "-20px", marginBottom: "10px", }}>
+                                <div className="col" style={{ background: "#e43c3c", }}><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none">
+                                    <path
+                                        d="M4 12C4 11.4477 4.44772 11 5 11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H5C4.44772 13 4 12.5523 4 12Z"
+                                        fill="currentColor" />
+                                </svg></div>
+                                <div className="col"><input type="number" style={{ width: "100px", }} /></div>
+                                <div className="col" style={{ background: "#50d966", }}><svg className="icon icon-tabler icon-tabler-plus" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M12 5l0 14" />
+                                    <path d="M5 12l14 0" />
+                                </svg></div>
+
+                            </div><button className="btn btn-primary" type="button" style={{ width: "57%", }}>Add to Cart</button>
+
+                        </div>
                     </div>
                 </div>
-            </section>
-        </>
-    )
+                ))}
+            </div>
+        </div>
+    );
 }

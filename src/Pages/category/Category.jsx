@@ -99,33 +99,28 @@ const Category = () => {
 
 
     return (
-        <section className="photo-gallery">
-
-            <div className="container">
-                <div className="row mb-3" style={{ marginLeft: "0px", }}>
-                    <div className="col-8 text-center mx-auto" style={{ marginRight: "0px", }}>
-                        <h2>Category</h2>
-                        <p className="w-lg-50">Here You can find categories</p>
-                    </div>
-                    <div className="col-2 text-end align-self-center">
-                        <a role="button" className="btn btn-outline-info btn-lg" href="/category/createCategory">Create New Category</a>
-                    </div>
-                </div>
-                <div className="row gx-2 gy-2 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="">
-                    {categoryList.map((category) => (
-
-                        <div className="col item" onClick={() => alert(JSON.stringify(category))}>
-                            <div className="card border-0 shadow-none">
-                                <div className="card-body text-center d-flex flex-column align-items-center p-0"><img className="rounded-circle mb-3 fit-cover" width="130" height="130" src="assets\img\category\cooking_essentials.jpeg" />
-                                    <h5 className="fw-bold text-primary card-title mb-0">{category.categoryName}/ </h5>
-                                    <h5 className="fw-bold text-primary card-title mb-0">{category.categoryNameTn}</h5>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
+        <div className="container py-4 py-xl-5">
+    <div className="row mb-5">
+        <div className="col-md-8 col-xl-9 text-center mx-auto">
+            <h2><br /><strong>Category</strong><br /><br /></h2>
+            <p className="w-lg-50">Curae hendrerit donec commodo hendrerit egestas tempus, turpis facilisis nostra nunc. Vestibulum dui eget ultrices.</p>
+        </div>
+        <div className="col align-self-center" style={{ textAlign:"center", }}><a className="btn btn-outline-info btn-lg" role="button" href="category/createcategory">Create New Category</a></div>
+    </div>
+    <div className="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+    {categoryList.map((category) => (
+        <div className="col">
+            <div className="card">
+                <div className="card-body p-4"><img className="rounded-circle mb-3 fit-cover" width="130" height="130" src="cooking_essentials.jpeg" />
+                    <h4 className="card-title">{category.categoryName} / </h4>
+                    <h4 className="card-title">{category.categoryNameTn}</h4>
+                    <p className="card-text">Category Description</p>
                 </div>
             </div>
-        </section>
+        </div>
+        ))}
+    </div>
+</div>
     )
 }
 

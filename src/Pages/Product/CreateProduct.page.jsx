@@ -68,8 +68,6 @@ export function CreateProduct() {
         <div className="col-3" style={{ textAlign: "center", }}><button onClick={() => handleCreate()} className="btn btn-success" type="button" style={{ textAlign: "center", }}>Create</button></div>
         <div className="col-3" style={{ textAlign: "center", }}><button className="btn btn-danger" type="button" style={{ textAlign: "center", }}>cancel</button></div>
       </div>
-
-
     </>
   )
 }
