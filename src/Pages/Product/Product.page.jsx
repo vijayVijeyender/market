@@ -102,7 +102,9 @@ export function Product() {
                     <h2><br /><strong>Products</strong><br /></h2>
                     <p className="w-lg-50"><br />Here You can find the groups of products that meet a similar consumer need or that can substitute for each<br /></p>
                 </div>
-                <div className="col align-self-center" style={{ textAlign: "center", }}><button className="btn btn-primary" type="button">Create New Product</button></div>
+                <div className="col align-self-center" style={{ textAlign: "center", }}>
+                <a className="btn btn-outline-info btn-lg" role="button" href="category/createcategory">Create New Product</a>
+                    </div>
             </div>
             <div className="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
 {productList.map((item) => (

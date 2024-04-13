@@ -105,7 +105,8 @@ const Category = () => {
             <h2><br /><strong>Category</strong><br /><br /></h2>
             <p className="w-lg-50">Curae hendrerit donec commodo hendrerit egestas tempus, turpis facilisis nostra nunc. Vestibulum dui eget ultrices.</p>
         </div>
-        <div className="col align-self-center" style={{ textAlign:"center", }}><a className="btn btn-outline-info btn-lg" role="button" href="category/createcategory">Create New Category</a></div>
+        <div className="col align-self-center" style={{ textAlign:"center", }}>
+            <a className="btn btn-outline-info btn-lg" role="button" href="category/createcategory">Create New Category</a></div>
     </div>
     <div className="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
     {categoryList.map((category) => (
