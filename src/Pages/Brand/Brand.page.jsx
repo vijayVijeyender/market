@@ -21,11 +21,11 @@ export default function Brand() {
     }, [setBrandList])
 
     return (
-        <div className="container py-4 py-xl-5">
+        <div className="container ">
     <div className="row mb-5">
         <div className="col-md-8 col-xl-9 text-center mx-auto" style={{ flex:"0 0 auto !important", width:"933px !important", }}>
-            <h2>Brand</h2>
-            <p className="w-lg-50">Curae hendrerit donec commodo hendrerit egestas tempus, turpis facilisis nostra nunc. Vestibulum dui eget ultrices.</p>
+        <h2><br /><strong>Brand</strong><br /></h2>
+                    <p className="w-lg-50"><br />Here You can find the groups of products that meet a similar consumer need or that can substitute for each<br /></p>
         </div>
         <div className="col align-self-center"><a className="btn btn-outline-info btn-lg" role="button" href="brand/createbrand">Create New Brand</a></div>
     </div>

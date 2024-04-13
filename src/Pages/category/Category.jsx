@@ -99,7 +99,7 @@ const Category = () => {
 
 
     return (
-        <div className="container py-4 py-xl-5">
+        <div className="container">
     <div className="row mb-5">
         <div className="col-md-8 col-xl-9 text-center mx-auto">
             <h2><br /><strong>Category</strong><br /><br /></h2>
@@ -111,7 +111,7 @@ const Category = () => {
     {categoryList.map((category) => (
         <div className="col">
             <div className="card">
-                <div className="card-body p-4"><img className="rounded-circle mb-3 fit-cover" width="130" height="130" src="cooking_essentials.jpeg" />
+                <div className="card-body p-4">
                     <h4 className="card-title">{category.categoryName} / </h4>
                     <h4 className="card-title">{category.categoryNameTn}</h4>
                     <p className="card-text">Category Description</p>

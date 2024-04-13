@@ -96,7 +96,7 @@ export function Product() {
         },
     ]
     return (
-        <div className="container py-4 py-xl-5">
+        <div className="container">
             <div className="row mb-5">
                 <div className="col-8 col-xl-9 text-center mx-auto">
                     <h2><br /><strong>Products</strong><br /></h2>
@@ -108,7 +108,7 @@ export function Product() {
 {productList.map((item) => (
                 <div className="col item">
                     <div className="card">
-                        <div className="card-body text-center d-flex flex-column align-items-center p-0"><img className="rounded-circle mb-3 fit-cover" width="130" height="130" src="ready_to_cook.jpeg" />
+                        <div className="card-body text-center d-flex flex-column align-items-center p-0">
                             <div className="row row-cols-1" style={{ margin: "0px", marginRight: "0px", marginBottom: "10px", marginTop: "0px", }}>
                                 <div className="col">
                                     <h4 className="card-title">{item.productNameTn}</h4>
