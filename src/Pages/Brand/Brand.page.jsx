@@ -22,14 +22,11 @@ export default function Brand() {
 
     return (
         <div className="container">
-            <div className="row" style={{
-                "marginBottom": "46px"
-            }}>
-                <div className="col-5 col-xl-3 offset-4 text-center align-self-center">
-                    <h1 className="text-secondary-emphasis">Brand Details</h1>
-                </div>
-                <div className="col text-end align-self-center">
-                    <a className="btn btn-outline-info btn-lg" role="button" href="brand/createbrand">Create New Brand</a></div>
+            <div className="row mb-5">
+                <div className="col-8 text-center mx-auto">
+                    <h2>Brand</h2>
+                    <p className="w-lg-50">Here You can find the Brand details</p>
+                </div>  <div className="col-2 text-end align-self-center"><a className="btn btn-outline-info btn-lg" role="button" href="brand/createbrand">Create New Brand</a></div>
             </div>
             {responseStatus === "failed" ? <h1> Not able to fetch brand details</h1> :
                 <div className="row gy-4 row-cols-1 row-cols-sm-2 row-cols-lg-3 mb-3">
