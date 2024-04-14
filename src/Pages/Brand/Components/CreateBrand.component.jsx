@@ -14,15 +14,17 @@ export function CreateBrand() {
         await axios.post("http://localhost:8080/brand/createbrand",brand).then(
             res => {
                 setResponseStatus("success");
+                navigate(-1);
             }
         )
             .catch(err => {
-                setResponseStatus("failed");
+                setResponseStatus(err.response.data);
             });
-          navigate(-1);
+         
     }
 
     function handleBrandInput(inputType, e){
+        setResponseStatus("")
         switch(inputType){
             case "brandname":
                 setBrand({...brand,brandName:e.target.value})
@@ -58,6 +60,7 @@ export function CreateBrand() {
             <div className="col-auto"><label className="form-label float-start form-label form-label">Enter Brand Description in Tamil</label>
             <input onChange={(e)=>handleBrandInput("branddescTn",e)} className="form-control" type="text" placeholder="Enter Brand Description in tamil" /></div>
         </div>
+     { ( responseStatus!== "" && responseStatus!== "success" )  && <div className="form-control is-invalid mt-5">{responseStatus}</div> } 
         <div className="row d-flex justify-content-center" style={{
             "marginTop": "28px"
         }}>
@@ -70,7 +73,7 @@ export function CreateBrand() {
             }}>Create</button></div>
             <div className="col-3" style={{
                 "textAlign": "center"
-            }}><button className="btn btn-danger" type="button" style={{
+            }}><button onClick={()=>navigate(-1)} className="btn btn-danger" type="button" style={{
                 "textAlign": "center"
             }}>cancel</button></div>
         </div>
