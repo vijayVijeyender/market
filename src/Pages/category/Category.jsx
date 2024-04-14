@@ -97,11 +97,11 @@ const Category = () => {
     fetchCategoryDetails();
   }, [setCategories]);
 
-  async function handleFetchDetails(category) {
+  async function fetchProductDetails(category) {
     await axios
-      .post("http://localhost:8080/product", category)
+      .post("http://localhost:8080/category/getproducts", category)
       .then((res) => {
-        setCategoryData(...categoryData, res.data);
+        setCategoryData(res.data);
         Navigate("/product");
       })
       .catch((err) => {
@@ -144,7 +144,7 @@ const Category = () => {
             <div className="col item">
               <div
                 className="card border-0 shadow-none"
-                onClick={() => handleFetchDetails(category)}
+                onClick={() => fetchProductDetails(category)}
               >
                 <div className="card-body text-center d-flex flex-column align-items-center p-0">
                   <img
