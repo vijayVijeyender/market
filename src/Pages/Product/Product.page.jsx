@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { ProductModel } from "./Components/productModel.component";
 export function Product()
 {
     const [productList,setProductList] = useState([])
     const [responseStatus,setResponseStatus]= useState('')
+    const [showModel,setShowModel]= useState(false)
+    const [product , setProduct]=useState({})
 
     async function fetchProductDetails(){
         await axios.get("http://localhost:8080/product").then(
@@ -16,14 +19,18 @@ export function Product()
            setResponseStatus("failed");    
          });
     }
-    
+    function handleEditButton(item){
+        setShowModel(!showModel)
+        setProduct(item)
+    }
+
     useEffect(()=>{
         fetchProductDetails();
-    },[setProductList])
-    const product=[
+    },[setProductList,showModel])
+    const products=[
         {
 productImg:<img srcSet="src/assets/img/Product/been.jpg" />,
-productNameEng:"Beens",
+productName:"Beens",
 productNameTn:"பீன்ஸ்",
         },
         {
@@ -68,11 +75,11 @@ productNameTn:"பிரியாணி சாதம்",
       },
       {
        productImg:<img srcSet="src/assets/img/Product/Noodles.jpg" />,
-    productNameEng:"Noodles",
+    productName:"Noodles",
     productNameTn:"நூடுல்ஸ்",
     },        {
         productImg:<img srcSet="src/assets/img/Product/Teapowder.jpg" />,
-        productNameEng:"Tea powder",
+        productName:"Tea powder",
         productNameTn:"தேயிலை தூள்",
                 },
                 {
@@ -96,54 +103,61 @@ productNameTn:"பிரியாணி சாதம்",
         productNameTn:"பேரிச்சை",
         },
     ]
-    return(
-        <>
-       <section id="products" className="photo-gallery py-4 py-xl-5">
-        <div className="container">
-          
-            <div className="row mb-5">
-                <div className="col-md-8 col-xl-6 text-center mx-auto">
-                    <h2>Products</h2>
-                    <p className="w-lg-50">Here You can find the groups of products that meet a similar consumer need or that can substitute for each</p>
-                </div>  <div className="col text-end align-self-center"><a className="btn btn-outline-info btn-lg" role="button" href="product/CreateProduct">Create New Product</a></div>
-            </div>
-            <div className="row gx-2 gy-2 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="">
-            {productList.map((item)=>(
-                <div className="col item">
-                    <div className="card border-0 shadow-none">
-                        <div className="card-body text-center d-flex flex-column align-items-center p-0">{item.productImg}
-                            <div className="row" style={{ margin:"0px", marginRight:"0px", marginBottom:"10px", marginTop:"0px", }}>
-                                <div className="col">
-                                    <h5 className="fw-bold text-primary mb-0">{item.productName}</h5>
-                                    <h5 className="fw-bold text-primary mb-0">{item.productNameTn}</h5>
+    return <>
+   <section className="photo-gallery py-4 py-xl-5" id="products">
+    <div className="container">
+      
+        <div className="row mb-5">
+            <div className="col-md-8 col-xl-6 text-center mx-auto">
+                <h2>Products</h2>
+                <p className="w-lg-50">Here You can find the groups of products that meet a similar consumer need or that can substitute for each</p>
+            </div>  <div className="col text-end align-self-center"><a className="btn btn-outline-info btn-lg" role="button" href="product/CreateProduct">Create New Product</a></div>
+        </div>
+        <div className="row gx-2 gy-2 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="">
+        {products.map((item)=>(
+            <div className="col item">
+                <div className="card border-0 shadow-none">
+                    <div className="card-body text-center d-flex flex-column align-items-center p-0">{item.productImg}
+                        <div className="row" style={{ margin:"0px", marginRight:"0px", marginBottom:"10px", marginTop:"0px", }}>
+                            <div className="col">
+                                <h5 className="fw-bold text-primary mb-0">{item.productName}</h5>
+                                <h5 className="fw-bold text-primary mb-0">{item.productNameTn}</h5>
 
-                                </div>
-                               <p>
-                                <div className="col align-self-center"><select>
-                                        <option value="13">250 g</option>
-                                        <option value="12" selected="">500 g</option>
-                                        <option value="14">1kg</option>
-                                    </select></div>
-                                    </p>
                             </div>
-                            <div className="row" style={{ marginRight:"-20px", marginBottom:"10px", }}>
-                                <div className="col" style={{ background:"#e43c3c", }}><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none">
-                                        <path d="M4 12C4 11.4477 4.44772 11 5 11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H5C4.44772 13 4 12.5523 4 12Z" fill="currentColor"></path>
-                                    </svg></div>
-                                <div className="col"><input type="number" style={{ width:"100px", }} /></div>
-                                <div className="col" style={{ background:"#50d966", }}><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" className="icon icon-tabler icon-tabler-plus">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg></div>
-                            </div><button className="btn btn-primary" type="button" style={{ width:"57%", }}>Add to Cart</button>
+                           <p>
+                            <div className="col align-self-center"><select>
+                                    <option value="13">250 g</option>
+                                    <option value="12" selected="">500 g</option>
+                                    <option value="14">1kg</option>
+                                </select></div>
+                                </p>
                         </div>
+                        <div className="row" style={{ marginRight:"-20px", marginBottom:"10px", }}>
+                            <div className="col" style={{ background:"#e43c3c", }}><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none">
+                                    <path
+                                        d="M4 12C4 11.4477 4.44772 11 5 11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H5C4.44772 13 4 12.5523 4 12Z"
+                                        fill="currentColor" />
+                                </svg></div>
+                            <div className="col"><input type="number" style={{ width:"100px", }} /></div>
+                            <div className="col" style={{ background:"#50d966", }}><svg className="icon icon-tabler icon-tabler-plus" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <line x1="12" y1="5" x2="12" y2="19" />
+                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                </svg></div>
+                        </div><button className="btn btn-primary" type="button" style={{ width:"57%", }}>Add to Cart</button>
+                        <div className="row" style={{ marginTop: "20px" }}>
+                    <div className="col"><button className="btn btn-primary" onClick={()=> handleEditButton(item)} type="button">Edit</button></div>
+                    <div className="col"><button className="btn btn-primary" type="button">Delete</button></div>
+                </div>
                     </div>
                 </div>
+            </div>
 ))}
-               </div>
-               </div>
-    </section>
-        </>
-    )
+           </div>
+           
+    {showModel && <ProductModel setShowModel={setShowModel} product={product} setProduct={setProduct}/> }
+ 
+           </div>
+</section>
+    </>;
 }
