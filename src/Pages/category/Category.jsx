@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const Category = () => {
+const navigate=useNavigate();
     const categoryList = [
         {
             id: 1,
@@ -75,10 +77,6 @@ const Category = () => {
     ]
 
     const [categories, setCategories] = useState([])
-    const [category, setCategory] = useState({
-        categoryName: '',
-        categoryNameTn: ''
-    })
     const [responseStatus, setResponseStatus] = useState('')
 
     async function fetchCategoryDetails() {
@@ -92,6 +90,19 @@ const Category = () => {
                 setResponseStatus("failed");
             });
     }
+
+
+  async function fetchProductDetails(category) {
+    await axios
+      .get(`http://localhost:8080/product/productcategory/`+category.id)
+      .then((res) => {
+        // setCategoryData(res.data);
+        navigate("/product");
+      })
+      .catch((err) => {
+        setResponseStatus("failed");
+      });
+  }
 
     useEffect(() => {
         fetchCategoryDetails();
@@ -109,9 +120,9 @@ const Category = () => {
             <a className="btn btn-outline-info btn-lg" role="button" href="category/createcategory">Create New Category</a></div>
     </div>
     <div className="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
-    {categoryList.map((category) => (
-        <div className="col">
-            <div className="card">
+    {categories.map((category) => (
+        <div className="col" key={category.id}>
+            <div className="card" onClick={() => fetchProductDetails(category)}>
                 <div className="card-body p-4">
                     <h4 className="card-title">{category.categoryName} / </h4>
                     <h4 className="card-title">{category.categoryNameTn}</h4>
@@ -125,4 +136,5 @@ const Category = () => {
     )
 }
 
-export default Category
+
+export default Category;
