@@ -4,6 +4,7 @@ import axios from "axios";
 
 export function CreateProduct() {
   const navigate = useNavigate();
+
   const [product, setProduct] = useState({
     productName: "",
     productNameTn: "",
@@ -66,118 +67,44 @@ export function CreateProduct() {
     <>
       <div className="row">
         <div className="col">
-          <h1
-            className="text-secondary-emphasis"
-            style={{ textAlign: "center" }}
-          >
-            Create a New Product
-          </h1>
+          <h1 className="text-secondary-emphasis" style={{ textAlign: "center", }}>Create a New Product</h1>
         </div>
       </div>
       <div className="row gy-3 text-center d-flex flex-row justify-content-center">
         <div className="col-auto">
-          <label
-            className="form-label float-start form-label form-label"
-            for="productname"
-          >
-            Enter Product Name
-          </label>
-          <input
-            type="text"
-            onChange={(e) => handleProductInput("productName", e)}
-            className="form-control"
-            name="productname"
-            placeholder="Enter Product name"
-          />
+          <label className="form-label float-start form-label form-label" for="productname">Enter Product Name</label>
+          <input type="text" onChange={(e) => handleProductInput("productName", e)} className="form-control" name="productname" placeholder="Enter Product name" />
         </div>
         <div className="col-auto">
-          <label className="form-label float-start form-label form-label">
-            Enter Product Tamil Name
-          </label>
-          <input
-            type="text"
-            onChange={(e) => handleProductInput("productNameTn", e)}
-            className="form-control"
-            placeholder="Enter Product name in tamil"
-          />
+          <label className="form-label float-start form-label form-label">Enter Product Tamil Name</label>
+          <input type="text" onChange={(e) => handleProductInput("productNameTn", e)} className="form-control" placeholder="Enter Product name in tamil" />
+         </div>
+        <div className="col-auto">
+          <label className="form-label float-start form-label form-label">Enter Product Description</label>
+          <input type="text" onChange={(e) => handleProductInput("productDes", e)} className="form-control" placeholder="Enter Product description " />
+         </div>
+        <div className="col-auto">
+          <label className="form-label float-start form-label form-label">Enter Product Description in Tamil</label>
+          <input type="text" onChange={(e) => handleProductInput("productDesTn", e)} className="form-control" placeholder="Enter Product Description in tamil" />
+         </div>
+        <div className="col-auto">
+          <label className="form-label float-start form-label form-label">Enter Category Name</label>
+          <input type="text" onChange={(e) => handleProductInput("cName", e)} className={`form-control ${handleNames("cName")}`} placeholder="Enter Category Name" />
+           <div className="valid-feedback">Success! category found.</div>
+           <div className="invalid-feedback">Sorry, category does not exist. Try another?</div>
         </div>
         <div className="col-auto">
-          <label className="form-label float-start form-label form-label">
-            Enter Product Description
-          </label>
-          <input
-            type="text"
-            onChange={(e) => handleProductInput("productDes", e)}
-            className="form-control"
-            placeholder="Enter Product description "
-          />
-        </div>
-        <div className="col-auto">
-          <label className="form-label float-start form-label form-label">
-            Enter Product Description in Tamil
-          </label>
-          <input
-            type="text"
-            onChange={(e) => handleProductInput("productDesTn", e)}
-            className="form-control"
-            placeholder="Enter Product Description in tamil"
-          />
-        </div>
-        <div className="col-auto">
-          <label className="form-label float-start form-label form-label">
-            Enter Category Name
-          </label>
-          <input
-            type="text"
-            onChange={(e) => handleProductInput("cName", e)}
-            className={`form-control ${handleNames("cName")}`}
-            placeholder="Enter Category Name"
-          />
-          <div className="valid-feedback">Success! category found.</div>
-          <div className="invalid-feedback">
-            Sorry, category does not exist. Try another?
-          </div>
-        </div>
-        <div className="col-auto">
-          <label className="form-label float-start form-label form-label">
-            Enter Brand Name
-          </label>
-          <input
-            type="text"
-            onChange={(e) => handleProductInput("bName", e)}
-            className={`form-control ${handleNames("bName")}`}
-            placeholder="Enter Brand Name"
-          />
+          <label className="form-label float-start form-label form-label">Enter Brand Name</label>
+          <input type="text" onChange={(e) => handleProductInput("bName", e)}  className={`form-control ${handleNames("bName")}`} placeholder="Enter Brand Name" />
           <div className="valid-feedback">Success! Brand found.</div>
-          <div className="invalid-feedback">
-            Sorry, Brand does not exist. Try another?
-          </div>
-        </div>
+          <div className="invalid-feedback">Sorry, Brand does not exist. Try another?</div>
+         </div>
+      <div className="row d-flex justify-content-center" style={{ marginTop: "28px", }}>
+        <div className="col-3" style={{ textAlign: "center", }}><button onClick={() => handleCreate()} className="btn btn-success" type="button" style={{ textAlign: "center", }}>Create</button></div>
+        <div className="col-3" style={{ textAlign: "center", }}><button className="btn btn-danger" type="button" style={{ textAlign: "center", }}>cancel</button></div>
       </div>
-      <div
-        className="row d-flex justify-content-center"
-        style={{ marginTop: "28px" }}
-      >
-        <div className="col-3" style={{ textAlign: "center" }}>
-          <button
-            onClick={() => handleCreate()}
-            className="btn btn-success"
-            type="button"
-            style={{ textAlign: "center" }}
-          >
-            Create
-          </button>
-        </div>
-        <div className="col-3" style={{ textAlign: "center" }}>
-          <button
-            className="btn btn-danger"
-            type="button"
-            style={{ textAlign: "center" }}
-          >
-            cancel
-          </button>
-        </div>
       </div>
     </>
   );
 }
+

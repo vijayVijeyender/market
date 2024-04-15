@@ -54,7 +54,7 @@ const CreateCategory = () => {
         </div>
       </header>
       <div className="row gy-3 text-center d-flex flex-row justify-content-center">
-        <div className="col-auto col-xl-6"><label className="form-label float-start form-label form-label" for="categoryname">Enter Category Name</label><input onChange={(e) => handleCategoryInput("categoryName", e)} type="text" className="form-control" name="categoryname" placeholder="Enter Category name" /></div>
+        <div className="col-auto "><label className="form-label float-start form-label form-label" for="categoryname">Enter Category Name</label><input onChange={(e) => handleCategoryInput("categoryName", e)} type="text" className="form-control" name="categoryname" placeholder="Enter Category name" /></div>
         <div className="col-auto"><label className="form-label float-start form-label form-label">Enter Category Tamil Name</label>
         <input onChange={(e) => handleCategoryInput("categoryNameTn", e)} type="text" className="form-control" placeholder="Enter category name in tamil" /></div>
         <div className="col-auto"><label className="form-label float-start form-label form-label">Enter Category Description</label>
