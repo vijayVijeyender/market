@@ -33,9 +33,7 @@ const Home = () => {
         const addItems  = { productName:items.productName,
         productQty:items.productQty,
         productPrice:items.productPrice}
-
-         const listItem = [...cartItems , addItems] 
-         setCartItems(listItem)  
+         setCartItems([...cartItems , addItems])  
         }
      
   

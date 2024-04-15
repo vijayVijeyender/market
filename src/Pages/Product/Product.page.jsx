@@ -1,8 +1,18 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Cart } from "../../Components/Cart/Cart.component";
+
 export function Product() {
     const [productList, setProductList] = useState([])
     const [responseStatus, setResponseStatus] = useState('')
+    const [selectedProduct,setSelectedProduct] = useState([])
+    
+    const handleCart =(items)=>{  
+        const addItems  = { productName:items.productName,
+        productQty:"1",
+        productPrice:"Rs.10"}
+        setSelectedProduct([...selectedProduct , addItems])  
+        }
 
     async function fetchProductDetails() {
         await axios.get("http://localhost:8080/product").then(
@@ -22,81 +32,82 @@ export function Product() {
     const product = [
         {
             productImg: <img srcSet="src/assets/img/Product/been.jpg" />,
-            productNameEng: "Beens",
+            productName: "Beens",
             productNameTn: "பீன்ஸ்",
         },
         {
             productImg: <img srcSet="src/assets/img/Product/Butter.jpg" />,
-            productNameEng: "வெண்ணெய்",
+            productName: "வெண்ணெய்",
             productNameTn: "பீன்ஸ்",
         },
         {
             productImg: <img srcSet="src/assets/img/Product/DriedFruit.jpg" />,
-            productNameEng: "Dried Fruits",
+            productName: "Dried Fruits",
             productNameTn: "உலர்ந்த பழங்கள்",
         },
         {
             productImg: <img srcSet="src/assets/img/Product/Pasta.jpg" />,
-            productNameEng: "Pasta",
+            productName: "Pasta",
             productNameTn: "பாஸ்தா",
         },
         {
             productImg: <img srcSet="src/assets/img/Product/BiryaniRice.jpg" />,
-            productNameEng: "Biryani Rice",
+            productName: "Biryani Rice",
             productNameTn: "பிரியாணி சாதம்",
         },
         {
             productImg: <img srcSet="src/assets/img/Product/Redchillipowder.jpg" />,
-            productNameEng: "Red chilli powder",
+            productName: "Red chilli powder",
             productNameTn: "சிவப்பு மிளகாய் தூள்",
         },
         {
             productImg: <img srcSet="src/assets/img/Product/Sambarpowder.jpg" />,
-            productNameEng: "Sambar powder",
+            productName: "Sambar powder",
             productNameTn: "சாம்பார் பொடி",
         },
         {
             productImg: <img srcSet="src/assets/img/Product/Pepper.jpg" />,
-            productNameEng: "Pepper",
+            productName: "Pepper",
             productNameTn: "மிளகு",
         },
         {
             productImg: <img srcSet="src/assets/img/Product/Ragiflour.jpg" />,
-            productNameEng: "Ragi flour",
+            productName: "Ragi flour",
             productNameTn: "ராகி மாவு",
         },
         {
             productImg: <img srcSet="src/assets/img/Product/Noodles.jpg" />,
-            productNameEng: "Noodles",
+            productName: "Noodles",
             productNameTn: "நூடுல்ஸ்",
         }, {
             productImg: <img srcSet="src/assets/img/Product/Teapowder.jpg" />,
-            productNameEng: "Tea powder",
+            productName: "Tea powder",
             productNameTn: "தேயிலை தூள்",
         },
         {
             productImg: <img srcSet="src/assets/img/Product/Sugar.jpg" />,
-            productNameEng: "Sugar",
+            productName: "Sugar",
             productNameTn: "சர்க்கரை",
         },
         {
             productImg: <img srcSet="src/assets/img/Product/Bakingpowder.jpg" />,
-            productNameEng: "Baking powder",
+            productName: "Baking powder",
             productNameTn: "பேக்கிங் பவுடர்",
         },
         {
             productImg: <img srcSet="src/assets/img/Product/Almonds.jpg" />,
-            productNameEng: "Almonds",
+            productName: "Almonds",
             productNameTn: "பாதாம்",
         },
         {
             productImg: <img srcSet="src/assets/img/Product/Dates.jpg" />,
-            productNameEng: "Dates",
+            productName: "Dates",
             productNameTn: "பேரிச்சை",
         },
     ]
     return (
         <div className="container">
+            
             <div className="row mb-5">
                 <div className="col-8 col-xl-9 text-center mx-auto">
                     <h2><br /><strong>Products</strong><br /></h2>
@@ -107,7 +118,7 @@ export function Product() {
                     </div>
             </div>
             <div className="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
-{productList.map((item) => (
+{product.map((item) => (
                 <div className="col item">
                     <div className="card">
                         <div className="card-body text-center d-flex flex-column align-items-center p-0">
@@ -125,8 +136,9 @@ export function Product() {
                                 </select></div>
                             </div>
                             <div className="row" style={{ marginRight: "-20px", marginBottom: "10px", }}>
-                                <div className="col" style={{ background: "#e43c3c", }}><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none">
-                                    <path
+                                <div className="col" onClick={()=>alert("Hi")} style={{ background: "#e43c3c", }}><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none">
+                                    
+                                    <path 
                                         d="M4 12C4 11.4477 4.44772 11 5 11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H5C4.44772 13 4 12.5523 4 12Z"
                                         fill="currentColor" />
                                 </svg></div>
@@ -137,12 +149,16 @@ export function Product() {
                                     <path d="M5 12l14 0" />
                                 </svg></div>
 
-                            </div><button className="btn btn-primary" type="button" style={{ width: "57%", }}>Add to Cart</button>
+                            </div><button onClick={()=>handleCart(item)} className="btn btn-primary" type="button" style={{ width: "57%", }}>Add to Cart</button>
 
                         </div>
+                     
                     </div>
+                 
                 </div>
+                
                 ))}
+               <Cart cartItems={selectedProduct}/>
             </div>
         </div>
     );
