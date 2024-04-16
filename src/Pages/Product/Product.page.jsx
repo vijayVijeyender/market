@@ -21,19 +21,26 @@ export function Product() {
     }
 
     async function fetchProductDetails() {
-        await axios.get("http://localhost:8080/product").then(
-            res => {
-                setProductList(res.data);
-                setResponseStatus("success");
-            }
-        )
-            .catch(err => {
-                setResponseStatus("failed");
-            });
+        // await axios.get("http://localhost:8080/product").then(
+        //     res => {
+        //         setProductList(res.data);
+        //         setResponseStatus("success");
+        //     }
+        // )
+        //     .catch(err => {
+        //         setResponseStatus("failed");
+        //     });
+        setProductList(productll)
     }
     function handleEditButton(item) {
         setShowModel(!showModel)
         setProduct(item)
+        handleDelete(item)
+    }
+
+    function handleDelete(item){
+           const temp= productList.filter((product)=> product.productName !== item.productName)
+           setProductList(temp);
     }
 
     useEffect(() => {
@@ -117,7 +124,7 @@ export function Product() {
     ]
 
 
-    return (
+    return (   
         <div className="container">
 
             <div className="row mb-5">
@@ -125,14 +132,14 @@ export function Product() {
                     <h2><br /><strong>Products</strong><br /></h2>
                     <p className="w-lg-50"><br />Here You can find the groups of products that meet a similar consumer need or that can substitute for each<br /></p>
                 </div>
-                <div className="col align-self-center" style={{ textAlign: "center", }}>
+                <div className="col align-self-center" style={{ textAlign: "center" }}>
                     <a className="btn btn-outline-info btn-lg" role="button" href="category/createcategory">Create New Product</a>
                 </div>
             </div>
 
             <div className="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
 
-                {productll.map((item) => (
+                {productList.map((item) => (
                     <div className="col item">
                         <div className="card">
                             <div className="card-body text-center d-flex flex-column align-items-center p-0">
@@ -157,25 +164,25 @@ export function Product() {
                                             fill="currentColor" />
                                     </svg></div>
                                     <div className="col"><input type="number" style={{ width: "100px", }} /></div>
-                                    <div className="col" style={{ background: "#50d966", }}><svg className="icon icon-tabler icon-tabler-plus" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <div className="col" style={{ background: "#50d966", }}><svg className="icon icon-tabler icon-tabler-plus" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                         <path d="M12 5l0 14" />
                                         <path d="M5 12l14 0" />
                                     </svg></div>
 
-                                </div><button onClick={() => handleCart(item)} className="btn btn-primary" type="button" style={{ width: "57%", }}>Add to Cart</button>
+                                </div><button className="btn btn-primary" onClick={() => handleCart(item)} type="button" style={{ width: "57%", }}>Add to Cart</button>
 
 
                             </div>
                             <div className="row" style={{ marginTop: "20px" }}>
                                 <div className="col"><button className="btn btn-primary" onClick={() => handleEditButton(item)} type="button">Edit</button></div>
-                                <div className="col"><button className="btn btn-primary" type="button">Delete</button></div>
+                                <div className="col"><button onClick={()=>handleDelete(item)} className="btn btn-primary" type="button">Delete</button></div>
                             </div>
                         </div>
                     </div>
                 ))}
 
-                {showModel && <ProductModel setShowModel={setShowModel} product={product} setProduct={setProduct} />}
+                {showModel && <ProductModel setShowModel={setShowModel} product={product} setProduct={setProduct}  productList={productList} setProductList={setProductList} />}
 
 
 
@@ -184,11 +191,6 @@ export function Product() {
             </div>
 
         </div>
-
-
-
-        //     </div >
-        // </div >    
-    )
+    );
 
 }

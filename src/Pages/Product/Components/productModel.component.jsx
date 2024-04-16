@@ -10,15 +10,18 @@ function handleProductName(e,inputType){
 }
 }
 async function UpdateProductDetail(){
-    await axios.put("http://localhost:8080/product",props.product).then(
-        res=>{ 
-             setResponseStatus("success");
-             props.setShowModel(false)
-       }
-     )
-     .catch(err=>{
-       setResponseStatus("failed");    
-     });
+    // await axios.put("http://localhost:8080/product",props.product).then(
+    //     res=>{ 
+    //          setResponseStatus("success");
+    //          props.setShowModel(false)
+    //    }
+    //  )
+    //  .catch(err=>{
+    //    setResponseStatus("failed");    
+    //  });
+    props.setProductList([...props.productList,props.product])
+    props.setShowModel(false)
+    console.log("api called");
 }
     return (     
           <div className="modal fade show" id="modal-1" role="dialog" tabindex="-1" style={{ display:"block", }}>
