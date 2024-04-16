@@ -73,7 +73,7 @@ const Home = () => {
                     </div>
                     </div>
                 </div>
-              <Cart cartItems ={cartItems}/>
+              <Cart cartItems ={cartItems} />
             </div>
             
     ))}
