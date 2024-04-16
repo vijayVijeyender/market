@@ -1,8 +1,13 @@
+import { useEffect, useState } from "react"
 
 
 export function Cart(props){
+const[selectedItems, setSelectedItems]=useState([])
+useEffect(() => {
+    props.cartItems && props.cartItems.map((items)=>setSelectedItems([...selectedItems,items]))
+    // setSelectedItems([...selectedItems,props.cartItems])
+},[props.cartItems])
 
-    
     return(
         <>
          <div className="container d-flex flex-row flex-grow-1 flex-shrink-1 justify-content-evenly"></div>
@@ -21,7 +26,7 @@ export function Cart(props){
                             </tr>
                         </thead>
                         <tbody>
-                       { props.cartItems.map((items)=>(
+                       { selectedItems.map((items)=>(
                         <tr key={items.name}>
                                 <td>{items.productName}</td>
                                 <td>{items.productQty}</td>
