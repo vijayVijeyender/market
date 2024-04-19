@@ -89,6 +89,20 @@ setQuantity(e.target.value)
         setProductList(productll)
     }
 
+    async function handleDelete(item){
+        //    const temp= productList.filter((product)=> product.productName !== item.productName)
+        //    setProductList(temp);
+           await axios.delete("http://localhost:8080/product/deleteproduct/"+item.id).then(
+            res => {                
+                setResponseStatus("success");
+            }
+        )
+            .catch(err => {
+                setResponseStatus("failed");
+            });
+
+    }
+
     useEffect(() => {
         fetchProductDetails();
     }, [setProductList])
@@ -233,7 +247,9 @@ setQuantity(e.target.value)
     ]
 
 
-    return (
+ 
+    
+    return (   
         <div className="container">
 
             <div className="row mb-5">
@@ -306,14 +322,9 @@ setQuantity(e.target.value)
                  <div className="modal-body">
                 <CreateProduct quantity={quantity} productList={productList} setProductList={setProductList} setShowCreateProduct={setShowCreateProduct} />
                 </div>
-
                 </div>
                 </div>
                 </div>}
-
-      
-
-
             </div>
 
         </div>
