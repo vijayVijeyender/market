@@ -19,6 +19,14 @@ export function CreateProduct() {
       .post("http://localhost:8080/product/createProduct", product)
       .then((res) => {
         setResponseStatus("success");
+        setProduct({
+          productName: "",
+          productNameTn: "",
+          productDescription: "",
+          productDescriptionTn: "",
+          cName: "",
+          bName: "",
+        })
         navigate("/Product");
       })
       .catch((err) => {

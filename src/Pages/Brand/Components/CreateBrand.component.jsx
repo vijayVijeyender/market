@@ -14,7 +14,7 @@ export function CreateBrand() {
         await axios.post("http://localhost:8080/brand/createbrand",brand).then(
             res => {
                 setResponseStatus("success");
-                navigate(-1);
+                navigate("/brand");
             }
         )
             .catch(err => {
