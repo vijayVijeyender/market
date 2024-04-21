@@ -11,9 +11,10 @@ useEffect(() => {
     return(
         <>
          <div className="container d-flex flex-row flex-grow-1 flex-shrink-1 justify-content-evenly"></div>
-        <div className="offcanvas offcanvas-end" tabIndex={-1} id="navbar" aria-labelledby="navbarLabel">
+        <div className={`offcanvas offcanvas-end ${props.showCart && "show"} `} tabIndex={-1} id="navbar" aria-labelledby="navbarLabel">
             <div className="offcanvas-header">
-                <h5 className="offcanvas-title" id="navbarLabel">Cart</h5><button className="btn-close" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                <h5 className="offcanvas-title" id="navbarLabel">Cart</h5>
+                <button className="btn-close" type="button" onClick={()=>props.setShowCart(false)} data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div className="offcanvas-body">
                 <div className="table-responsive" style={{ height:"100vh", }}>

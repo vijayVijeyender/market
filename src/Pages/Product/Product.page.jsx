@@ -7,8 +7,8 @@ import { CreateProduct } from "./CreateProduct.page";
 
 export function Product() {
     const [productList, setProductList] = useState([])
-    const [responseStatus, setResponseStatus] = useState('')
     const [selectedProduct, setSelectedProduct] = useState([])
+    const [showCart, setShowCart]=  useState(false)
     const [showModel, setShowModel] = useState(false)
     const [showCreateProduct, setShowCreateProduct] = useState(false)
     const [product, setProduct] = useState({})
@@ -20,6 +20,7 @@ export function Product() {
             productPrice: "Rs.10"
         }
         setSelectedProduct([...selectedProduct, addItems])
+        setShowCart(true)
     }
 
     async function fetchProductDetails() {
@@ -34,6 +35,7 @@ export function Product() {
         //     });
         setProductList(productll)
     }
+    
     function handleEditButton(item) {
         setShowModel(!showModel)
         setProduct(item)
@@ -124,11 +126,8 @@ export function Product() {
             productNameTn: "பேரிச்சை",
         },
     ]
-
-
     return (
         <div className="container">
-
             <div className="row mb-5">
                 <div className="col-8 col-xl-9 text-center mx-auto">
                     <h2><br /><strong>Products</strong><br /></h2>
@@ -138,9 +137,7 @@ export function Product() {
                     <a className="btn btn-outline-info btn-lg" role="button" onClick={() => setShowCreateProduct(true)}>Create New Product</a>
                 </div>
             </div>
-
             <div className="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
-
                 {productList.map((item) => (
                     <div className="col item">
                         <div className="card">
@@ -160,7 +157,6 @@ export function Product() {
                                 </div>
                                 <div className="row" style={{ marginRight: "-20px", marginBottom: "10px", }}>
                                     <div className="col" onClick={() => alert("Hi")} style={{ background: "#e43c3c", }}><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none">
-
                                         <path
                                             d="M4 12C4 11.4477 4.44772 11 5 11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H5C4.44772 13 4 12.5523 4 12Z"
                                             fill="currentColor" />
@@ -171,10 +167,7 @@ export function Product() {
                                         <path d="M12 5l0 14" />
                                         <path d="M5 12l14 0" />
                                     </svg></div>
-
                                 </div><button className="btn btn-primary" onClick={() => handleCart(item)} type="button" style={{ width: "57%", }}>Add to Cart</button>
-
-
                             </div>
                             <div className="row" style={{ marginTop: "20px" }}>
                                 <div className="col"><button className="btn btn-primary" onClick={() => handleEditButton(item)} type="button">Edit</button></div>
@@ -183,10 +176,7 @@ export function Product() {
                         </div>
                     </div>
                 ))}
-
                 {showModel && <ProductModel setShowModel={setShowModel} product={product} setProduct={setProduct} productList={productList} setProductList={setProductList} />}
-               
-               
                 {showCreateProduct && <div className="modal fade show" id="modal-1" role="dialog" tabindex="-1" style={{ display: "block", }}>
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">
@@ -205,7 +195,7 @@ export function Product() {
                         </div>
                     </div>
                 </div>}
-                <Cart cartItems={selectedProduct} />
+                <Cart cartItems={selectedProduct}  showCart={showCart} setShowCart={setShowCart}/>
             </div>
 
         </div>
