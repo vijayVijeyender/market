@@ -37,7 +37,7 @@ useEffect(() => {
                             
                               
                             <tr>
-                                <td>Total:</td>
+                                <td>Total: </td>
                                 <td></td>
                                 <td></td>
                             </tr>

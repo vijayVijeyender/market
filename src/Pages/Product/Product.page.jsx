@@ -35,7 +35,7 @@ export function Product() {
         //     });
         setProductList(productll)
     }
-    
+
     function handleEditButton(item) {
         setShowModel(!showModel)
         setProduct(item)
@@ -55,6 +55,7 @@ export function Product() {
 
             productName: "Beens",
             productNameTn: "பீன்ஸ்",
+            productPrice:10
         },
         {
 
