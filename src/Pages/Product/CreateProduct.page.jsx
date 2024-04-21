@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-export function CreateProduct() {
+export function CreateProduct(props) {
   const navigate = useNavigate();
 
   const [product, setProduct] = useState({
@@ -15,15 +15,17 @@ export function CreateProduct() {
   });
   const [responseStatus, setResponseStatus] = useState("");
   async function handleCreate() {
-    await axios
-      .post("http://localhost:8080/product/createProduct", product)
-      .then((res) => {
-        setResponseStatus("success");
-        navigate("/Product");
-      })
-      .catch((err) => {
-        setResponseStatus(err.response.data);
-      });
+    // await axios
+    //   .post("http://localhost:8080/product/createProduct", product)
+    //   .then((res) => {
+    //     setResponseStatus("success");
+    //     navigate("/Product");
+    //   })
+    //   .catch((err) => {
+    //     setResponseStatus(err.response.data);
+    //   });
+    props.setProductList([...props.productList,product])
+    props.setShowCreateProduct(false)
   }
   function handleProductInput(inputType, e) {
     switch (inputType) {
@@ -65,11 +67,11 @@ export function CreateProduct() {
   }
   return (
     <>
-      <div className="row">
+      {/* <div className="row">
         <div className="col">
           <h1 className="text-secondary-emphasis" style={{ textAlign: "center", }}>Create a New Product</h1>
         </div>
-      </div>
+      </div> */}
       <div className="row gy-3 text-center d-flex flex-row justify-content-center">
         <div className="col-auto">
           <label className="form-label float-start form-label form-label" for="productname">Enter Product Name</label>

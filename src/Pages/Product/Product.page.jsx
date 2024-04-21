@@ -3,12 +3,14 @@ import axios from "axios";
 import { ProductModel } from "./Components/productModel.component";
 
 import { Cart } from "../../Components/Cart/Cart.component";
+import { CreateProduct } from "./CreateProduct.page";
 
 export function Product() {
     const [productList, setProductList] = useState([])
     const [responseStatus, setResponseStatus] = useState('')
     const [selectedProduct, setSelectedProduct] = useState([])
     const [showModel, setShowModel] = useState(false)
+    const [showCreateProduct, setShowCreateProduct] = useState(false)
     const [product, setProduct] = useState({})
 
     const handleCart = (items) => {
@@ -38,9 +40,9 @@ export function Product() {
         handleDelete(item)
     }
 
-    function handleDelete(item){
-           const temp= productList.filter((product)=> product.productName !== item.productName)
-           setProductList(temp);
+    function handleDelete(item) {
+        const temp = productList.filter((product) => product.productName !== item.productName)
+        setProductList(temp);
     }
 
     useEffect(() => {
@@ -48,83 +50,83 @@ export function Product() {
     }, [setProductList])
     const productll = [
         {
-            productImg: <img srcSet="src/assets/img/Product/been.jpg" />,
+
             productName: "Beens",
             productNameTn: "பீன்ஸ்",
         },
         {
-            productImg: <img srcSet="src/assets/img/Product/Butter.jpg" />,
+
             productName: "வெண்ணெய்",
             productNameTn: "பீன்ஸ்",
         },
         {
-            productImg: <img srcSet="src/assets/img/Product/DriedFruit.jpg" />,
+
             productName: "Dried Fruits",
             productNameTn: "உலர்ந்த பழங்கள்",
         },
         {
-            productImg: <img srcSet="src/assets/img/Product/Pasta.jpg" />,
+
             productName: "Pasta",
             productNameTn: "பாஸ்தா",
         },
         {
-            productImg: <img srcSet="src/assets/img/Product/BiryaniRice.jpg" />,
+
             productName: "Biryani Rice",
             productNameTn: "பிரியாணி சாதம்",
         },
         {
-            productImg: <img srcSet="src/assets/img/Product/Redchillipowder.jpg" />,
+
             productName: "Red chilli powder",
             productNameTn: "சிவப்பு மிளகாய் தூள்",
         },
         {
-            productImg: <img srcSet="src/assets/img/Product/Sambarpowder.jpg" />,
+
             productName: "Sambar powder",
             productNameTn: "சாம்பார் பொடி",
         },
         {
-            productImg: <img srcSet="src/assets/img/Product/Pepper.jpg" />,
+
             productName: "Pepper",
             productNameTn: "மிளகு",
         },
         {
-            productImg: <img srcSet="src/assets/img/Product/Ragiflour.jpg" />,
+
             productName: "Ragi flour",
             productNameTn: "ராகி மாவு",
         },
         {
-            productImg: <img srcSet="src/assets/img/Product/Noodles.jpg" />,
+
             productName: "Noodles",
             productNameTn: "நூடுல்ஸ்",
         }, {
-            productImg: <img srcSet="src/assets/img/Product/Teapowder.jpg" />,
+
             productName: "Tea powder",
             productNameTn: "தேயிலை தூள்",
         },
         {
-            productImg: <img srcSet="src/assets/img/Product/Sugar.jpg" />,
+
             productName: "Sugar",
             productNameTn: "சர்க்கரை",
         },
         {
-            productImg: <img srcSet="src/assets/img/Product/Bakingpowder.jpg" />,
+
             productName: "Baking powder",
             productNameTn: "பேக்கிங் பவுடர்",
         },
         {
-            productImg: <img srcSet="src/assets/img/Product/Almonds.jpg" />,
+
             productName: "Almonds",
             productNameTn: "பாதாம்",
         },
         {
-            productImg: <img srcSet="src/assets/img/Product/Dates.jpg" />,
+
             productName: "Dates",
             productNameTn: "பேரிச்சை",
         },
     ]
 
 
-    return (   
+    return (
         <div className="container">
 
             <div className="row mb-5">
@@ -133,7 +135,7 @@ export function Product() {
                     <p className="w-lg-50"><br />Here You can find the groups of products that meet a similar consumer need or that can substitute for each<br /></p>
                 </div>
                 <div className="col align-self-center" style={{ textAlign: "center" }}>
-                    <a className="btn btn-outline-info btn-lg" role="button" href="category/createcategory">Create New Product</a>
+                    <a className="btn btn-outline-info btn-lg" role="button" onClick={() => setShowCreateProduct(true)}>Create New Product</a>
                 </div>
             </div>
 
@@ -176,17 +178,33 @@ export function Product() {
                             </div>
                             <div className="row" style={{ marginTop: "20px" }}>
                                 <div className="col"><button className="btn btn-primary" onClick={() => handleEditButton(item)} type="button">Edit</button></div>
-                                <div className="col"><button onClick={()=>handleDelete(item)} className="btn btn-primary" type="button">Delete</button></div>
+                                <div className="col"><button onClick={() => handleDelete(item)} className="btn btn-primary" type="button">Delete</button></div>
                             </div>
                         </div>
                     </div>
                 ))}
 
-                {showModel && <ProductModel setShowModel={setShowModel} product={product} setProduct={setProduct}  productList={productList} setProductList={setProductList} />}
-
-
-
-
+                {showModel && <ProductModel setShowModel={setShowModel} product={product} setProduct={setProduct} productList={productList} setProductList={setProductList} />}
+               
+               
+                {showCreateProduct && <div className="modal fade show" id="modal-1" role="dialog" tabindex="-1" style={{ display: "block", }}>
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h4 className="modal-title">Create a New Product</h4>
+                                <button
+                                    onClick={() => setShowCreateProduct(false)}
+                                    className="btn-close"
+                                    type="button"
+                                    aria-label="Close"
+                                    data-bs-dismiss="modal" />
+                            </div>
+                            <div className="modal-body">
+                                <CreateProduct productList={productList} setProductList={setProductList} setShowCreateProduct={setShowCreateProduct} />
+                            </div>
+                        </div>
+                    </div>
+                </div>}
                 <Cart cartItems={selectedProduct} />
             </div>
 
