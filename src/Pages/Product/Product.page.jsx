@@ -39,7 +39,7 @@ export function Product() {
     function handleEditButton(item) {
         setShowModel(!showModel)
         setProduct(item)
-        handleDelete(item)
+        // handleDelete(item)
     }
 
     function handleDelete(item) {
@@ -52,77 +52,77 @@ export function Product() {
     }, [setProductList])
     const productll = [
         {
-
+            id:1,
             productName: "Beens",
             productNameTn: "பீன்ஸ்",
             productPrice:10
         },
         {
-
+            id:2,
             productName: "வெண்ணெய்",
             productNameTn: "பீன்ஸ்",
         },
         {
-
+            id:3,
             productName: "Dried Fruits",
             productNameTn: "உலர்ந்த பழங்கள்",
         },
         {
-
+            id:4,
             productName: "Pasta",
             productNameTn: "பாஸ்தா",
         },
         {
-
+            id:5,
             productName: "Biryani Rice",
             productNameTn: "பிரியாணி சாதம்",
         },
         {
-
+            id:6,
             productName: "Red chilli powder",
             productNameTn: "சிவப்பு மிளகாய் தூள்",
         },
         {
-
+            id:7,
             productName: "Sambar powder",
             productNameTn: "சாம்பார் பொடி",
         },
         {
-
+            id:8,
             productName: "Pepper",
             productNameTn: "மிளகு",
         },
         {
-
+            id:9,
             productName: "Ragi flour",
             productNameTn: "ராகி மாவு",
         },
         {
-
+            id:10,
             productName: "Noodles",
             productNameTn: "நூடுல்ஸ்",
         }, {
-
+            id:11,
             productName: "Tea powder",
             productNameTn: "தேயிலை தூள்",
         },
         {
-
+            id:12,
             productName: "Sugar",
             productNameTn: "சர்க்கரை",
         },
         {
-
+            id:13,
             productName: "Baking powder",
             productNameTn: "பேக்கிங் பவுடர்",
         },
         {
-
+            id:14,
             productName: "Almonds",
             productNameTn: "பாதாம்",
         },
         {
-
+            id:15,
             productName: "Dates",
             productNameTn: "பேரிச்சை",
         },

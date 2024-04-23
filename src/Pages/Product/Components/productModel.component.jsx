@@ -19,6 +19,13 @@ async function UpdateProductDetail(){
     //  .catch(err=>{
     //    setResponseStatus("failed");    
     //  });
+   
+    props.productList.map((product)=>{
+        if(product.id===props.product.id) { 
+            product.productName= props.product.productName; 
+            product.productNameTn= props.product.productNameTn;
+            return product; 
+        }})
     props.setProductList([...props.productList,props.product])
     props.setShowModel(false)
     console.log("api called");
