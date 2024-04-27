@@ -16,11 +16,11 @@ export function Header()
                     </svg><span style={{ color:"rgb(13,234,9)", }}>Cart</span></button><button data-bs-toggle="collapse" className="navbar-toggler text-end" data-bs-target="#navcol-2"><span className="visually-hidden">Toggle navigation</span><span className="navbar-toggler-icon"></span></button>
                 <div className="collapse navbar-collapse text-center" id="navcol-2" style={{ margin:"0px", }}>
                     <ul className="navbar-nav navbar-nav-scroll ms-auto">
-                        <li className="nav-item"><a className="nav-link active" href="/">Home</a></li>
-                        <li className="nav-item"><a className="nav-link" href="/brand">Brand</a></li>
-                        <li className="nav-item"><a className="nav-link" href="/category">Category</a></li>     
-                        <li className="nav-item"><a className="nav-link" href="/Product">Product</a></li>
-                        <li className="nav-item"><a className="nav-link" href="/bill">Bill</a></li>
+                        <li className="nav-item"><a className="nav-link active" onClick={()=> navigate("/")} style={{cursor: "pointer"}} >Home</a></li>
+                        <li className="nav-item"><a className="nav-link"  onClick={()=> navigate("/brand")}>Brand</a></li>
+                        <li className="nav-item"><a className="nav-link" onClick={()=> navigate("/category")} style={{cursor: "pointer"}}>Category</a></li>     
+                        <li className="nav-item"><a className="nav-link" onClick={()=> navigate("/product")} style={{cursor: "pointer"}}>Product</a></li>
+                        <li className="nav-item"><a className="nav-link" onClick={()=> navigate("/bill")} style={{cursor: "pointer"}}>Bill</a></li>
                         <li className="nav-item"><a className="nav-link" href="/login">Login</a></li>
                         <li className="nav-item"><a className="nav-link" href="/signup">Sign Up</a></li>
                     </ul>

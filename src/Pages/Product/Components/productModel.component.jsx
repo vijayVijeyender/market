@@ -1,5 +1,8 @@
 import {  useState } from "react";
 import axios from "axios";
+
+
+
 export function ProductModel(props){
     const [responseStatus, setResponseStatus] = useState('')
 function handleProductName(e,inputType){ 
@@ -26,7 +29,6 @@ async function UpdateProductDetail(){
             product.productNameTn= props.product.productNameTn;
             return product; 
         }})
-    props.setProductList([...props.productList,props.product])
     props.setShowModel(false)
     console.log("api called");
 }
