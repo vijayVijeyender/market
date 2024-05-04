@@ -3,7 +3,7 @@ import { Cart } from '../Components/Cart/Cart.component'
 
 
 const Home = () => {
-
+    const [showCart, setShowCart]=  useState(false)
     const deliveryDetails =[
         {
     productName:"Water Can",
@@ -15,14 +15,14 @@ const Home = () => {
          {
     productName:"Water Can",
     productQty:"2",
-    productPrice:"40",
+    productPrice:"20",
     productDeliveryTime:"Mid Range Plan",
     productDeliveryDetailes:"Water can which you order today will be delivered with in 12 Hrs. Delivery charge will be Medium.",
         },
         {
     productName:"Water Can",
     productQty:"4",
-    productPrice:"60",
+    productPrice:"15",
     productDeliveryTime:"Money Saver Plan",
     productDeliveryDetailes:"Water can which you order today will be delivered with in 2 Hrs. Delivery charge will be High.",
         }, 
@@ -34,6 +34,7 @@ const Home = () => {
         productQty:items.productQty,
         productPrice:items.productPrice}
          setCartItems([...cartItems , addItems])  
+         setShowCart(true)
         }
      
   
@@ -62,7 +63,7 @@ const Home = () => {
                 <label><strong>Product Quantity :</strong></label>{detail.productQty}
                         </p>
                         <p>
-                        <label><strong>Product Price  :</strong></label> {detail.productPrice}
+                        <label><strong>Price  Per Can:</strong></label> {detail.productPrice}
                         </p>
                         </div>
                     <div className="col-xl-9">
@@ -73,7 +74,7 @@ const Home = () => {
                     </div>
                     </div>
                 </div>
-              <Cart cartItems ={cartItems} />
+              <Cart cartItems ={cartItems} showCart={showCart} setShowCart={setShowCart} />
             </div>
             
     ))}

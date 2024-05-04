@@ -34,9 +34,9 @@ return total
                     <table className="table">
                         <thead>
                             <tr>
-                                <th>Item name</th>
+                                <th>Pname</th>
                                 <th>NOB</th>
-                                <th>Quantity</th>
+                                <th>Qty</th>
                                 <th>price</th>
                                 <th>Remove</th>
 
@@ -49,7 +49,7 @@ return total
                                 <td>{items.productQty}</td>
                                 <td>{items.productKgs}</td>
                                 <td>{items.productQty*(items.productPrice)}</td>
-                                 <button onClick={()=>handleRemoveCart(items)} style={{marginRight:"1mm", marginTop:"1mm"}}>-</button>
+                                 <button onClick={()=>handleRemoveCart(items)} style={{marginRight:"1mm", marginTop:"1mm" , backgroundColor:"red"}}>-</button>
                             </tr>
                        ))}     
                             
@@ -65,6 +65,7 @@ return total
                 </div>
             </div>
         </div>
+        
         </>
     )
 }
