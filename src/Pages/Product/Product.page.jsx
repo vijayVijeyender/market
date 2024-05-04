@@ -21,7 +21,7 @@ function handleQty(item,e)
 {
     setProductQTY(e.target.value)
    productList.map((product)=>{
-    if(product.productID===item.productID)
+    if(product.productId===item.productId)
     {
 product.productQty=e.target.value;
 return product
@@ -35,7 +35,7 @@ function handleQuantity(item,e)
 {
 //     setQuantity(e.target.value)
 //     productList.map((product)=>{
-//     if(product.productID===item.productID)
+//     if(product.productId===item.productId)
 //     {
 //         product.productKgs= e.target.value;
 //         return product;
@@ -43,7 +43,7 @@ function handleQuantity(item,e)
 // })
 setQuantity(e.target.value)
     productList.map((product) => {
-        if (product.productID === item.productID) {
+        if (product.productId === item.productId) {
                 product.productKgs= e.target.value;
             return product;
         }
@@ -123,7 +123,7 @@ setQuantity(e.target.value)
     }
     const productll = [
         {
-            productID: 1,
+            productId: 1,
             productName: "Beens",
             productNameTn: "பீன்ஸ்",
             productKgs:"250 g",
@@ -132,7 +132,7 @@ setQuantity(e.target.value)
 
         },
         {
-            productID: 2,
+            productId: 2,
             productName: "Butter",
             productNameTn: "வெண்ணெய்",
             productKgs:"250 g",
@@ -140,7 +140,7 @@ setQuantity(e.target.value)
             productPrice: 50,
         },
         {
-            productID: 3,
+            productId: 3,
             productName: "Dried Fruits",
             productNameTn: "உலர்ந்த பழங்கள்",
             productKgs:"250 g",
@@ -148,7 +148,7 @@ setQuantity(e.target.value)
             productPrice: 125,
         },
         {
-            productID: 4,
+            productId: 4,
             productName: "Pasta",
             productNameTn: "பாஸ்தா",
             productKgs:"250 g",
@@ -156,7 +156,7 @@ setQuantity(e.target.value)
             productPrice: 80,
         },
         {
-            productID: 5,
+            productId: 5,
             productName: "Biryani Rice",
             productNameTn: "பிரியாணி சாதம்",
             productKgs:"250 g",
@@ -164,7 +164,7 @@ setQuantity(e.target.value)
             productPrice: 75,
         },
         {
-            productID: 6,
+            productId: 6,
             productName: "Red chilli powder",
             productNameTn: "சிவப்பு மிளகாய் தூள்",
             productKgs:"250 g",
@@ -172,7 +172,7 @@ setQuantity(e.target.value)
             productPrice: 15,
         },
         {
-            productID: 7,
+            productId: 7,
             productName: "Sambar powder",
             productNameTn: "சாம்பார் பொடி",
             productKgs:"250 g",
@@ -181,7 +181,7 @@ setQuantity(e.target.value)
 
         },
         {
-            productID: 8,
+            productId: 8,
             productName: "Pepper",
             productNameTn: "மிளகு",
             productKgs:"250 g",
@@ -189,7 +189,7 @@ setQuantity(e.target.value)
             productPrice: 45,
         },
         {
-            productID: 9,
+            productId: 9,
             productName: "Ragi flour",
             productNameTn: "ராகி மாவு",
             productKgs:"250 g",
@@ -197,7 +197,7 @@ setQuantity(e.target.value)
             productPrice: 75,
         },
         {
-            productID: 10,
+            productId: 10,
             productName: "Noodles",
             productNameTn: "நூடுல்ஸ்",
             productKgs:"250 g",
@@ -205,7 +205,7 @@ setQuantity(e.target.value)
             productPrice: 40,
         }, 
         {
-            productID: 11,
+            productId: 11,
             productName: "Tea powder",
             productNameTn: "தேயிலை தூள்",
             productKgs:"250 g",
@@ -213,7 +213,7 @@ setQuantity(e.target.value)
             productPrice: 120,
         },
         {
-            productID: 12,
+            productId: 12,
             productName: "Sugar",
             productNameTn: "சர்க்கரை",
             productKgs:"250 g",
@@ -221,7 +221,7 @@ setQuantity(e.target.value)
             productPrice: 30,
         },
         {
-            productID: 13,
+            productId: 13,
             productName: "Baking powder",
             productNameTn: "பேக்கிங் பவுடர்",
             productKgs:"250 g",
@@ -229,7 +229,7 @@ setQuantity(e.target.value)
             productPrice: 65,
         },
         {
-            productID: 14,
+            productId: 14,
             productName: "Almonds",
             productNameTn: "பாதாம்",
             productKgs:"250 g",
@@ -237,7 +237,7 @@ setQuantity(e.target.value)
             productPrice: 250,
         },
         {
-            productID: 15,
+            productId: 15,
             productName: "Dates",
             productNameTn: "பேரிச்சை",
             productKgs:"250 g",
