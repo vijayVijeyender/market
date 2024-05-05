@@ -37,14 +37,14 @@ function handleQuantity(item,e)
 //     productList.map((product)=>{
 //     if(product.productId===item.productId)
 //     {
-//         product.productKgs= e.target.value;
+//         product.productCapacity= e.target.value;
 //         return product;
 //     }
 // })
 setQuantity(e.target.value)
     productList.map((product) => {
         if (product.productId === item.productId) {
-                product.productKgs= e.target.value;
+                product.productCapacity= e.target.value;
             return product;
         }
     });
@@ -54,18 +54,18 @@ setQuantity(e.target.value)
 //// Cart function
 
     const handleCart = (items) => {
-        let tempPrice=items.productPrice*handleProductKgs(items.productKgs)
+        let tempPrice=items.productPrice*handleProductKgs(items.productCapacity)
         const addItems = {
             productName: items.productName,
             productQty: items.productQty,
-            productKgs: items.productKgs,
+            productCapacity: items.productCapacity,
             productPrice: tempPrice
         }
         setSelectedProduct([...selectedProduct, addItems])
         setShowCart(true)
     }
-    function handleProductKgs(productKgs){
-        switch(productKgs){
+    function handleProductKgs(productCapacity){
+        switch(productCapacity){
             case "250 g":
                 return 1;
             case "500 g":
@@ -126,7 +126,7 @@ setQuantity(e.target.value)
             productId: 1,
             productName: "Beens",
             productNameTn: "பீன்ஸ்",
-            productKgs:"250 g",
+            productCapacity:"250 g",
             productQty:1,
             productPrice: 25,
 
@@ -135,7 +135,7 @@ setQuantity(e.target.value)
             productId: 2,
             productName: "Butter",
             productNameTn: "வெண்ணெய்",
-            productKgs:"250 g",
+            productCapacity:"250 g",
             productQty:1,
             productPrice: 50,
         },
@@ -143,7 +143,7 @@ setQuantity(e.target.value)
             productId: 3,
             productName: "Dried Fruits",
             productNameTn: "உலர்ந்த பழங்கள்",
-            productKgs:"250 g",
+            productCapacity:"250 g",
             productQty:1,
             productPrice: 125,
         },
@@ -151,7 +151,7 @@ setQuantity(e.target.value)
             productId: 4,
             productName: "Pasta",
             productNameTn: "பாஸ்தா",
-            productKgs:"250 g",
+            productCapacity:"250 g",
             productQty:1,
             productPrice: 80,
         },
@@ -159,7 +159,7 @@ setQuantity(e.target.value)
             productId: 5,
             productName: "Biryani Rice",
             productNameTn: "பிரியாணி சாதம்",
-            productKgs:"250 g",
+            productCapacity:"250 g",
             productQty:1,
             productPrice: 75,
         },
@@ -167,7 +167,7 @@ setQuantity(e.target.value)
             productId: 6,
             productName: "Red chilli powder",
             productNameTn: "சிவப்பு மிளகாய் தூள்",
-            productKgs:"250 g",
+            productCapacity:"250 g",
             productQty:1,
             productPrice: 15,
         },
@@ -175,7 +175,7 @@ setQuantity(e.target.value)
             productId: 7,
             productName: "Sambar powder",
             productNameTn: "சாம்பார் பொடி",
-            productKgs:"250 g",
+            productCapacity:"250 g",
             productQty:1,
             productPrice: 10,
 
@@ -184,7 +184,7 @@ setQuantity(e.target.value)
             productId: 8,
             productName: "Pepper",
             productNameTn: "மிளகு",
-            productKgs:"250 g",
+            productCapacity:"250 g",
             productQty:1,
             productPrice: 45,
         },
@@ -192,7 +192,7 @@ setQuantity(e.target.value)
             productId: 9,
             productName: "Ragi flour",
             productNameTn: "ராகி மாவு",
-            productKgs:"250 g",
+            productCapacity:"250 g",
             productQty:1,
             productPrice: 75,
         },
@@ -200,7 +200,7 @@ setQuantity(e.target.value)
             productId: 10,
             productName: "Noodles",
             productNameTn: "நூடுல்ஸ்",
-            productKgs:"250 g",
+            productCapacity:"250 g",
             productQty:1,
             productPrice: 40,
         }, 
@@ -208,7 +208,7 @@ setQuantity(e.target.value)
             productId: 11,
             productName: "Tea powder",
             productNameTn: "தேயிலை தூள்",
-            productKgs:"250 g",
+            productCapacity:"250 g",
             productQty:1,
             productPrice: 120,
         },
@@ -216,7 +216,7 @@ setQuantity(e.target.value)
             productId: 12,
             productName: "Sugar",
             productNameTn: "சர்க்கரை",
-            productKgs:"250 g",
+            productCapacity:"250 g",
             productQty:1,
             productPrice: 30,
         },
@@ -224,7 +224,7 @@ setQuantity(e.target.value)
             productId: 13,
             productName: "Baking powder",
             productNameTn: "பேக்கிங் பவுடர்",
-            productKgs:"250 g",
+            productCapacity:"250 g",
             productQty:1,
             productPrice: 65,
         },
@@ -232,7 +232,7 @@ setQuantity(e.target.value)
             productId: 14,
             productName: "Almonds",
             productNameTn: "பாதாம்",
-            productKgs:"250 g",
+            productCapacity:"250 g",
             productQty:1,
             productPrice: 250,
         },
@@ -240,7 +240,7 @@ setQuantity(e.target.value)
             productId: 15,
             productName: "Dates",
             productNameTn: "பேரிச்சை",
-            productKgs:"250 g",
+            productCapacity:"250 g",
             productQty:1,
             productPrice: 200,
         },
@@ -281,7 +281,7 @@ setQuantity(e.target.value)
                                             <option  value="1 kg" >1 kg</option>
                                         </select>
                                         </div>
-                                        <h4 className="card-title">Rs.{item.productPrice*handleProductKgs(item.productKgs)}</h4>
+                                        <h4 className="card-title">Rs.{item.productPrice*handleProductKgs(item.productCapacity)}</h4>
 
                                 </div>
 

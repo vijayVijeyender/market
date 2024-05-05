@@ -33,7 +33,7 @@ async function UpdateProductDetail(){
     console.log("api called");
 }
     return (     
-          <div className="modal fade show" id="modal-1" role="dialog" tabindex="-1" style={{ display:"block", }}>
+          <div className="modal fade show" id="modal-1" role="dialog" tabindex={-1} style={{ display:"block", }}>
     <div className="modal-dialog" role="document">
         <div className="modal-content">
             <div className="modal-header">

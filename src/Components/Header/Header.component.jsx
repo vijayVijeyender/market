@@ -17,7 +17,7 @@ export function Header()
                 <div className="collapse navbar-collapse text-center" id="navcol-2" style={{ margin:"0px", }}>
                     <ul className="navbar-nav navbar-nav-scroll ms-auto">
                         <li className="nav-item"><a className="nav-link active" onClick={()=> navigate("/")} style={{cursor: "pointer"}} >Home</a></li>
-                        <li className="nav-item"><a className="nav-link"  onClick={()=> navigate("/brand")}>Brand</a></li>
+                        <li className="nav-item"><a className="nav-link"  onClick={()=> navigate("/brand")} style={{cursor: "pointer"}}>Brand</a></li>
                         <li className="nav-item"><a className="nav-link" onClick={()=> navigate("/category")} style={{cursor: "pointer"}}>Category</a></li>     
                         <li className="nav-item"><a className="nav-link" onClick={()=> navigate("/product")} style={{cursor: "pointer"}}>Product</a></li>
                         <li className="nav-item"><a className="nav-link" onClick={()=> navigate("/bill")} style={{cursor: "pointer"}}>Bill</a></li>

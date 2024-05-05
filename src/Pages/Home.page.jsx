@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
 import { Cart } from '../Components/Cart/Cart.component'
+import { ThanksModel } from '../Components/ThanksModel/ThanksModel.component';
 
 
 const Home = () => {
     const [showCart, setShowCart]=  useState(false)
+    const [showThanksModel,setShowThanksModel] =useState(false);
     const deliveryDetails =[
         {
     productName:"Water Can",
     productQty:"1",
+    productCapacity:"25L",
     productPrice:"25",
     productDeliveryTime:"Small Family Plan",
     productDeliveryDetailes:"Water can which you order today will be delivered with in 24 Hrs. Delivery charge will be Low.",
@@ -15,6 +18,7 @@ const Home = () => {
          {
     productName:"Water Can",
     productQty:"2",
+    productCapacity:"25L",
     productPrice:"20",
     productDeliveryTime:"Mid Range Plan",
     productDeliveryDetailes:"Water can which you order today will be delivered with in 12 Hrs. Delivery charge will be Medium.",
@@ -22,6 +26,7 @@ const Home = () => {
         {
     productName:"Water Can",
     productQty:"4",
+    productCapacity:"25L",
     productPrice:"15",
     productDeliveryTime:"Money Saver Plan",
     productDeliveryDetailes:"Water can which you order today will be delivered with in 2 Hrs. Delivery charge will be High.",
@@ -32,7 +37,9 @@ const Home = () => {
     const handleCart =(items)=>{  
         const addItems  = { productName:items.productName,
         productQty:items.productQty,
-        productPrice:items.productPrice}
+        productPrice:items.productPrice,
+        productCapacity:items.productCapacity
+    }
          setCartItems([...cartItems , addItems])  
          setShowCart(true)
         }
@@ -68,18 +75,17 @@ const Home = () => {
                         </div>
                     <div className="col-xl-9">
                         <button className="btn btn-primary font-monospace text-truncate"
-                         style={{ margin:"0px", marginTop:"10px", marginLeft:"30px", }}
                     onClick={()=> handleCart(detail)}
                     >Add To Cart</button>
                     </div>
                     </div>
                 </div>
-              <Cart cartItems ={cartItems} showCart={showCart} setShowCart={setShowCart} />
+              <Cart cartItems ={cartItems} showCart={showCart} setShowCart={setShowCart}  setShowThanksModel={setShowThanksModel}/>
             </div>
             
     ))}
       
-                
+      {showThanksModel && <ThanksModel setShowThanksModel={setShowThanksModel}/> }
             </div>
            
         </div>
