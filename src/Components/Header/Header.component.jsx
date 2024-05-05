@@ -130,7 +130,7 @@ export function Header(props) {
                     <div class={`theme-switcher dropdown-menu ${props.showThemeSwitcher ? "show": ''}`} data-bs-popper="none">
                       <a
                         class="dropdown-item d-flex align-items-center"
-                        onClick={()=>{localStorage.setItem('theme', 'light'); props.setShowThemeSwitcher(!props.showThemeSwitcher)}}
+                        onClick={()=>{localStorage.setItem('theme', 'light'); props.setShowThemeSwitcher(!props.showThemeSwitcher);window.location.reload();}}
                         style={{ cursor: "pointer" }}
                         data-bs-theme-value="light"
                       >
@@ -148,7 +148,7 @@ export function Header(props) {
                       </a>
                       <a
                         class="dropdown-item d-flex align-items-center"
-                        onClick={()=>{localStorage.setItem('theme', 'dark'); props.setShowThemeSwitcher(!props.showThemeSwitcher)}}
+                        onClick={()=>{localStorage.setItem('theme', 'dark'); props.setShowThemeSwitcher(!props.showThemeSwitcher);window.location.reload();}}
                         style={{ cursor: "pointer" }}
                         data-bs-theme-value="dark"
                       >
@@ -167,7 +167,7 @@ export function Header(props) {
                       </a>
                       <a
                         class="dropdown-item d-flex align-items-center"
-                        onClick={()=>{localStorage.setItem('theme', 'auto'); props.setShowThemeSwitcher(!props.showThemeSwitcher)}}
+                        onClick={()=>{localStorage.setItem('theme', 'auto'); props.setShowThemeSwitcher(!props.showThemeSwitcher);window.location.reload();}}
                         style={{ cursor: "pointer" }}
                         data-bs-theme-value="auto"
                       >
