@@ -10,7 +10,7 @@ import Category from "./Pages/category/Category.jsx";
 import CreateCategory from "./Pages/category/Components/CreateCategory.jsx";
 import { CreateProduct } from './Pages/Product/CreateProduct.page';
 import { CreateBrand } from './Pages/Brand/Components/CreateBrand.component.jsx';
-import "bootswatch/dist/quartz/bootstrap.min.css";
+import "bootswatch/dist/sketchy/bootstrap.min.css";
 
 
 function App() {

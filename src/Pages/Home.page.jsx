@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Cart } from '../Components/Cart/Cart.component'
-import { ThanksModel } from '../Components/ThanksModel/ThanksModel.component';
+import { ThanksModel } from '../Components/Models/ThanksModel.component';
 
 
 const Home = () => {
