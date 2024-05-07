@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { Cart } from '../Components/Cart/Cart.component'
+import { ContactModel } from '../Components/Models/ContactModel.component';
 import { ThanksModel } from '../Components/Models/ThanksModel.component';
 
 
 const Home = () => {
     const [showCart, setShowCart]=  useState(false)
     const [showThanksModel,setShowThanksModel] =useState(false);
+    const [showContactModel,setShowContactModel] =useState(false);
     const deliveryDetails =[
         {
     productName:"Water Can",
@@ -80,12 +82,13 @@ const Home = () => {
                     </div>
                     </div>
                 </div>
-              <Cart cartItems ={cartItems} showCart={showCart} setShowCart={setShowCart}  setShowThanksModel={setShowThanksModel}/>
+              <Cart cartItems ={cartItems} showCart={showCart} setShowCart={setShowCart}  setShowContactModel={setShowContactModel}/>
             </div>
             
     ))}
       
-      {showThanksModel && <ThanksModel setShowThanksModel={setShowThanksModel}/> }
+      {showContactModel && <ContactModel setShowThanksModel={setShowThanksModel} setShowContactModel={setShowContactModel}/> }
+       {showThanksModel &&  <ThanksModel setShowThanksModel={setShowThanksModel}/> }
             </div>
            
         </div>

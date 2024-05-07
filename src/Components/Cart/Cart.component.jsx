@@ -9,7 +9,6 @@ export function Cart(props) {
       props.cartItems.map((items) =>
         setSelectedItems([...selectedItems, items])
       );
-    // setSelectedItems([...selectedItems,props.cartItems])
   }, [props.cartItems]);
   function handleRemoveCart(items) {
     const temp = selectedItems.filter((product) => product !== items);
@@ -80,7 +79,7 @@ export function Cart(props) {
                 </tr>
               </tbody>
             </table>
-            <button className="btn btn-success" type="button" onClick={()=>{props.setShowCart(false);props.setShowThanksModel(true)}}>Place Order</button>
+            <button className="btn btn-success" type="button" onClick={()=>{props.setShowCart(false);props.setShowContactModel(true)}}>Place Order</button>
           </div>
         </div>
       </div>
