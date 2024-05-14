@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useStoreActions, useStoreState } from "easy-peasy";
 export default function Brand() {
     const [brandList, setBrandList] = useState([])
     const [responseStatus, setResponseStatus] = useState('')
+
+    const {brand}=useStoreState((state)=> state.brandModel);
+
+    const {setBrand} =useStoreActions((actions)=> actions.brandModel)
 
     async function fetchBrandDetails() {
         await axios.get("http://localhost:8080/brand").then(
