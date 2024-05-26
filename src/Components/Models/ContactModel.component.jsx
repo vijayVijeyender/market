@@ -46,7 +46,7 @@ export function ContactModel(props) {
     const addressPattern = /^[a-zA-Z0-9\s,'-]{10,}$/;
     const validateAddress = addressPattern.test(customerInfo.address)
       ? "is-valid"
-      : "is-invalid";
+      : "is-valid";
     setValidateCustomerInfo({
       name: validateName,
       email: validateEmail,
