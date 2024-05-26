@@ -26,6 +26,23 @@ export function CreateProduct(props) {
     //   });
     props.setProductList([...props.productList,product])
     props.setShowCreateProduct(false)
+    await axios
+      .post("http://localhost:8080/product/createProduct", product)
+      .then((res) => {
+        setResponseStatus("success");
+        setProduct({
+          productName: "",
+          productNameTn: "",
+          productDescription: "",
+          productDescriptionTn: "",
+          cName: "",
+          bName: "",
+        })
+        navigate("/Product");
+      })
+      .catch((err) => {
+        setResponseStatus(err.response.data);
+      });
   }
   function handleProductInput(inputType, e) {
     switch (inputType) {

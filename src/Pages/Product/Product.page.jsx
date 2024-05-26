@@ -21,7 +21,7 @@ function handleQty(item,e)
 {
     setProductQTY(e.target.value)
    productList.map((product)=>{
-    if(product.productID===item.productID)
+    if(product.productId===item.productId)
     {
 product.productQty=e.target.value;
 return product
@@ -35,16 +35,16 @@ function handleQuantity(item,e)
 {
 //     setQuantity(e.target.value)
 //     productList.map((product)=>{
-//     if(product.productID===item.productID)
+//     if(product.productId===item.productId)
 //     {
-//         product.productKgs= e.target.value;
+//         product.productCapacity= e.target.value;
 //         return product;
 //     }
 // })
 setQuantity(e.target.value)
     productList.map((product) => {
-        if (product.productID === item.productID) {
-                product.productKgs= e.target.value;
+        if (product.productId === item.productId) {
+                product.productCapacity= e.target.value;
             return product;
         }
     });
@@ -54,18 +54,18 @@ setQuantity(e.target.value)
 //// Cart function
 
     const handleCart = (items) => {
-        let tempPrice=items.productPrice*handleProductKgs(items.productKgs)
+        let tempPrice=items.productPrice*handleProductKgs(items.productCapacity)
         const addItems = {
             productName: items.productName,
             productQty: items.productQty,
-            productKgs: items.productKgs,
+            productCapacity: items.productCapacity,
             productPrice: tempPrice
         }
         setSelectedProduct([...selectedProduct, addItems])
         setShowCart(true)
     }
-    function handleProductKgs(productKgs){
-        switch(productKgs){
+    function handleProductKgs(productCapacity){
+        switch(productCapacity){
             case "250 g":
                 return 1;
             case "500 g":
@@ -89,6 +89,20 @@ setQuantity(e.target.value)
         setProductList(productll)
     }
 
+    async function handleDelete(item){
+        //    const temp= productList.filter((product)=> product.productName !== item.productName)
+        //    setProductList(temp);
+           await axios.delete("http://localhost:8080/product/deleteproduct/"+item.id).then(
+            res => {                
+                setResponseStatus("success");
+            }
+        )
+            .catch(err => {
+                setResponseStatus("failed");
+            });
+
+    }
+
     useEffect(() => {
         fetchProductDetails();
     }, [setProductList])
@@ -109,131 +123,133 @@ setQuantity(e.target.value)
     }
     const productll = [
         {
-            productID: 1,
+            productId: 1,
             productName: "Beens",
             productNameTn: "பீன்ஸ்",
-            productKgs:"250 g",
+            productCapacity:"250 g",
             productQty:1,
             productPrice: 25,
 
         },
         {
-            productID: 2,
+            productId: 2,
             productName: "Butter",
             productNameTn: "வெண்ணெய்",
-            productKgs:"250 g",
+            productCapacity:"250 g",
             productQty:1,
             productPrice: 50,
         },
         {
-            productID: 3,
+            productId: 3,
             productName: "Dried Fruits",
             productNameTn: "உலர்ந்த பழங்கள்",
-            productKgs:"250 g",
+            productCapacity:"250 g",
             productQty:1,
             productPrice: 125,
         },
         {
-            productID: 4,
+            productId: 4,
             productName: "Pasta",
             productNameTn: "பாஸ்தா",
-            productKgs:"250 g",
+            productCapacity:"250 g",
             productQty:1,
             productPrice: 80,
         },
         {
-            productID: 5,
+            productId: 5,
             productName: "Biryani Rice",
             productNameTn: "பிரியாணி சாதம்",
-            productKgs:"250 g",
+            productCapacity:"250 g",
             productQty:1,
             productPrice: 75,
         },
         {
-            productID: 6,
+            productId: 6,
             productName: "Red chilli powder",
             productNameTn: "சிவப்பு மிளகாய் தூள்",
-            productKgs:"250 g",
+            productCapacity:"250 g",
             productQty:1,
             productPrice: 15,
         },
         {
-            productID: 7,
+            productId: 7,
             productName: "Sambar powder",
             productNameTn: "சாம்பார் பொடி",
-            productKgs:"250 g",
+            productCapacity:"250 g",
             productQty:1,
             productPrice: 10,
 
         },
         {
-            productID: 8,
+            productId: 8,
             productName: "Pepper",
             productNameTn: "மிளகு",
-            productKgs:"250 g",
+            productCapacity:"250 g",
             productQty:1,
             productPrice: 45,
         },
         {
-            productID: 9,
+            productId: 9,
             productName: "Ragi flour",
             productNameTn: "ராகி மாவு",
-            productKgs:"250 g",
+            productCapacity:"250 g",
             productQty:1,
             productPrice: 75,
         },
         {
-            productID: 10,
+            productId: 10,
             productName: "Noodles",
             productNameTn: "நூடுல்ஸ்",
-            productKgs:"250 g",
+            productCapacity:"250 g",
             productQty:1,
             productPrice: 40,
         }, 
         {
-            productID: 11,
+            productId: 11,
             productName: "Tea powder",
             productNameTn: "தேயிலை தூள்",
-            productKgs:"250 g",
+            productCapacity:"250 g",
             productQty:1,
             productPrice: 120,
         },
         {
-            productID: 12,
+            productId: 12,
             productName: "Sugar",
             productNameTn: "சர்க்கரை",
-            productKgs:"250 g",
+            productCapacity:"250 g",
             productQty:1,
             productPrice: 30,
         },
         {
-            productID: 13,
+            productId: 13,
             productName: "Baking powder",
             productNameTn: "பேக்கிங் பவுடர்",
-            productKgs:"250 g",
+            productCapacity:"250 g",
             productQty:1,
             productPrice: 65,
         },
         {
-            productID: 14,
+            productId: 14,
             productName: "Almonds",
             productNameTn: "பாதாம்",
-            productKgs:"250 g",
+            productCapacity:"250 g",
             productQty:1,
             productPrice: 250,
         },
         {
-            productID: 15,
+            productId: 15,
             productName: "Dates",
             productNameTn: "பேரிச்சை",
-            productKgs:"250 g",
+            productCapacity:"250 g",
             productQty:1,
             productPrice: 200,
         },
     ]
 
 
-    return (
+ 
+    
+    return (   
         <div className="container">
 
             <div className="row mb-5">
@@ -265,7 +281,7 @@ setQuantity(e.target.value)
                                             <option  value="1 kg" >1 kg</option>
                                         </select>
                                         </div>
-                                        <h4 className="card-title">Rs.{item.productPrice*handleProductKgs(item.productKgs)}</h4>
+                                        <h4 className="card-title">Rs.{item.productPrice*handleProductKgs(item.productCapacity)}</h4>
 
                                 </div>
 
@@ -306,14 +322,9 @@ setQuantity(e.target.value)
                  <div className="modal-body">
                 <CreateProduct quantity={quantity} productList={productList} setProductList={setProductList} setShowCreateProduct={setShowCreateProduct} />
                 </div>
-
                 </div>
                 </div>
                 </div>}
-
-      
-
-
             </div>
 
         </div>

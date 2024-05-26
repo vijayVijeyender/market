@@ -1,4 +1,4 @@
-import { Cart } from "../Cart/Cart.component";
+
 import { useNavigate } from "react-router-dom";
 
 export function Header() {

@@ -1,5 +1,5 @@
 import {  useState } from "react";
-import axios from "axios";
+
 
 
 
@@ -24,7 +24,7 @@ async function UpdateProductDetail(){
     //  });
    
     props.productList.map((product)=>{
-        if(product.id===props.product.id) { 
+        if(product.productId===props.product.productId) { 
             product.productName= props.product.productName; 
             product.productNameTn= props.product.productNameTn;
             return product; 
@@ -33,7 +33,7 @@ async function UpdateProductDetail(){
     console.log("api called");
 }
     return (     
-          <div className="modal fade show" id="modal-1" role="dialog" tabindex="-1" style={{ display:"block", }}>
+          <div className="modal fade show" id="modal-1" role="dialog" tabindex={-1} style={{ display:"block", }}>
     <div className="modal-dialog" role="document">
         <div className="modal-content">
             <div className="modal-header">

@@ -1,19 +1,17 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme-value="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MAX Market</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.1/dist/quartz/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&amp;display=swap">  
     <script>
       (function() {
 
           // JavaScript snippet handling Dark/Light mode switching
 
           const getStoredTheme = () => localStorage.getItem('theme');
-          const setStoredTheme = theme => localStorage.setItem('theme', theme);
+          const setStoredTheme = theme => localStorage.setItem('theme', 'Light');
           const forcedTheme = document.documentElement.getAttribute('data-bss-forced-theme');
 
           const getPreferredTheme = () => {
@@ -88,7 +86,8 @@
           });
       })();
   </script>
-  </head>
+
+      </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>

@@ -1,29 +1,36 @@
 import React, { useState } from 'react'
 import { Cart } from '../Components/Cart/Cart.component'
+import { ContactModel } from '../Components/Models/ContactModel.component';
+import { ThanksModel } from '../Components/Models/ThanksModel.component';
 
 
 const Home = () => {
-
+    const [showCart, setShowCart]=  useState(false)
+    const [showThanksModel,setShowThanksModel] =useState(false);
+    const [showContactModel,setShowContactModel] =useState(false);
     const deliveryDetails =[
         {
     productName:"Water Can",
     productQty:"1",
+    productCapacity:"25L",
     productPrice:"25",
-    productDeliveryTime:"Delivery with in 24Hrs",
+    productDeliveryTime:"Small Family Plan",
     productDeliveryDetailes:"Water can which you order today will be delivered with in 24 Hrs. Delivery charge will be Low.",
         },
          {
     productName:"Water Can",
     productQty:"2",
-    productPrice:"40",
-    productDeliveryTime:"Delivery with in 12Hrs",
+    productCapacity:"25L",
+    productPrice:"20",
+    productDeliveryTime:"Mid Range Plan",
     productDeliveryDetailes:"Water can which you order today will be delivered with in 12 Hrs. Delivery charge will be Medium.",
         },
         {
     productName:"Water Can",
     productQty:"4",
-    productPrice:"60",
-    productDeliveryTime:"Delivery with in 02Hrs",
+    productCapacity:"25L",
+    productPrice:"15",
+    productDeliveryTime:"Money Saver Plan",
     productDeliveryDetailes:"Water can which you order today will be delivered with in 2 Hrs. Delivery charge will be High.",
         }, 
     ]
@@ -32,8 +39,11 @@ const Home = () => {
     const handleCart =(items)=>{  
         const addItems  = { productName:items.productName,
         productQty:items.productQty,
-        productPrice:items.productPrice}
+        productPrice:items.productPrice,
+        productCapacity:items.productCapacity
+    }
          setCartItems([...cartItems , addItems])  
+         setShowCart(true)
         }
      
   
@@ -62,23 +72,23 @@ const Home = () => {
                 <label><strong>Product Quantity :</strong></label>{detail.productQty}
                         </p>
                         <p>
-                        <label><strong>Product Price  :</strong></label> {detail.productPrice}
+                        <label><strong>Price  Per Can:</strong></label> {detail.productPrice}
                         </p>
                         </div>
                     <div className="col-xl-9">
                         <button className="btn btn-primary font-monospace text-truncate"
-                         style={{ margin:"0px", marginTop:"10px", marginLeft:"30px", }}
                     onClick={()=> handleCart(detail)}
                     >Add To Cart</button>
                     </div>
                     </div>
                 </div>
-              <Cart cartItems ={cartItems} />
+              <Cart cartItems ={cartItems} showCart={showCart} setShowCart={setShowCart}  setShowContactModel={setShowContactModel}/>
             </div>
             
     ))}
       
-                
+      {showContactModel && <ContactModel setShowThanksModel={setShowThanksModel} setShowContactModel={setShowContactModel}/> }
+       {showThanksModel &&  <ThanksModel setShowThanksModel={setShowThanksModel}/> }
             </div>
            
         </div>
