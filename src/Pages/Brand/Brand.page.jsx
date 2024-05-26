@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useStoreActions, useStoreState } from "easy-peasy";
 export default function Brand() {
-    // const [brandList, setBrandList] = useState([])
+     const [brandList, setBrandList] = useState([])
     const [responseStatus, setResponseStatus] = useState('')
     const brandll =[
         {
@@ -16,9 +17,9 @@ export default function Brand() {
         },
     ];
 
-    const {brand,brandList}=useStoreState((state)=> state.brandModel); //brand object value
+    // const {brand,brandList}=useStoreState((state)=> state.brandModel); //brand object value
 
-    const {setBrand, setBrandList} =useStoreActions((actions)=> actions.brandModel) // function which help us to modify brand value
+    // const {setBrand, setBrandList} =useStoreActions((actions)=> actions.brandModel) // function which help us to modify brand value
 
     async function fetchBrandDetails() {
         await axios.get("http://localhost:8080/brand").then(
