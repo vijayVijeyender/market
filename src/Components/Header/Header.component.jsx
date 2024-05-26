@@ -25,7 +25,7 @@ export function Header() {
               <span>MAX Market</span>
             </a>
             <button
-              className="btn-btn-sm cart-toggler"
+              className="btn btn-sm cart-toggler"
               data-bs-toggle="offcanvas"
               data-bs-target="#navbar"
               data-bs-placement="end"
