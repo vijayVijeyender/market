@@ -83,21 +83,7 @@ export function Header() {
                     Product
                   </a>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Third Item
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Third Item
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Third Item
-                  </a>
-                </li>
+
               </ul>
             </div>
           </div>
